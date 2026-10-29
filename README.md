@@ -2,7 +2,7 @@
 
 A step-by-step guide to preparing sample metadata, configuring a retrotransposition analysis, and launching the **Snakemake** workflow.
 
-![RetroAtlas mascot](retroatlas_readme_assets/hero.png)
+![RetroAtlas mascot](ReadmeImage/mascotas_retroatlas_principal.png)
 
 **Tools:** Snakemake · Conda / Mamba · CSV + YAML
 
