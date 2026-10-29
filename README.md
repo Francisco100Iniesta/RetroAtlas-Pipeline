@@ -3,7 +3,7 @@
 A step-by-step guide to preparing sample metadata, configuring a retrotransposition analysis, and launching the **Snakemake** workflow.
 
 <p align="center">
-  <img src="ReadmeImage/mascota_retroatlas_cohete.png" alt="RetroAtlas mascot" width="250">
+  <img src="ReadmeImage/mascotas_retroatlas_principal.png" alt="RetroAtlas mascot" width="250">
 </p>
 
 
@@ -150,7 +150,10 @@ Additional advanced configuration options are available for event reconstruction
 
 ## 5. Launch the Snakemake workflow
 
-![RetroAtlas mascot](ReadmeImage/mascota_retroatlas_cohete.png)
+<p align="center">
+  <img src="ReadmeImage/mascota_retroatlas_cohete.png" alt="RetroAtlas mascot" width="250">
+</p>
+
 
 After preparing the CSV files and editing the YAML configuration, activate the snakemake environment, open a terminal in the repository root and run:
 
