@@ -2,7 +2,10 @@
 
 A step-by-step guide to preparing sample metadata, configuring a retrotransposition analysis, and launching the **Snakemake** workflow.
 
-<img src="retroatlas_readme_assets/samples-layout.png" alt="Samples directory layout" width="300">
+<p align="center">
+  <img src="ReadmeImage/mascota_retroatlas_cohete.png" alt="RetroAtlas mascot" width="250">
+</p>
+
 
 
 **Tools:** Snakemake · Conda / Mamba · CSV + YAML
