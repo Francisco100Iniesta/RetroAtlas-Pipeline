@@ -1,4 +1,3 @@
-[README (3).md](https://github.com/user-attachments/files/34130343/README.3.md)
 # RetroAtlas — Execution Manual
 
 A step-by-step guide to preparing sample metadata, configuring a retrotransposition analysis, and launching the **Snakemake** workflow.
