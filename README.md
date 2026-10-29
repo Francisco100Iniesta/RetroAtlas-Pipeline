@@ -146,7 +146,7 @@ Additional advanced configuration options are available for event reconstruction
 
 ## 5. Launch the Snakemake workflow
 
-![RetroAtlas workflow mascot](retroatlas_readme_assets/mascota_retroatlas_cohete.png)
+![RetroAtlas mascot](ReadmeImage/mascotas_retroatlas_principal.png)
 
 After preparing the CSV files and editing the YAML configuration, activate the snakemake environment, open a terminal in the repository root and run:
 
