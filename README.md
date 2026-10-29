@@ -2,10 +2,6 @@
 
 A step-by-step guide to preparing sample metadata, configuring a retrotransposition analysis, and launching the **Snakemake** workflow.
 
-<p align="center">
-  <img src="ReadmeImage/mascotas_retroatlas_principal.png" alt="RetroAtlas mascot" width="350">
-</p>
-
 ## Contents
 
 1. [Create a Snakemake environment](#1-create-a-snakemake-environment)
@@ -54,8 +50,6 @@ RetroAtlas-Pipeline/
 
 ## 3. Prepare the sample CSV files
 
-![Samples directory layout](retroatlas_readme_assets/samples-layout.png)
-
 Create a comma-separated CSV file for the samples you intend to analyse. You can prepare it in a spreadsheet application or a text editor, then save it in the expected samples/ location. Use the following column headers:
 
 ```csv
@@ -90,7 +84,7 @@ The pairwise sample IDs must match the IDs in your sample manifest.
 
 ![Configuration directory layout](retroatlas_readme_assets/config-layout.png)
 
-Modify config/configuration.yaml to select the output path, analysis mode, detection thresholds and optional features.
+Modify config/configuration.yaml to select the output path, analysis mode, dete![Samples directory layout](retroatlas_readme_assets/samples-layout.png)ction thresholds and optional features.
 
 ```yaml
 # Output directory
@@ -146,9 +140,6 @@ Additional advanced configuration options are available for event reconstruction
 
 ## 5. Launch the Snakemake workflow
 
-<p align="center">
-  <img src="ReadmeImage/mascota_retroatlas_cohete.png" alt="RetroAtlas mascot" width="300">
-</p>
 
 
 After preparing the CSV files and editing the YAML configuration, activate the snakemake environment, open a terminal in the repository root and run:
@@ -161,7 +152,6 @@ For an HPC cluster that uses Slurm, job submission requires an appropriate Snake
 
 ## 6. Common problems and recovery
 
-![RetroAtlas mascot](ReadmeImage/mascota_retroatlas_frustrada.png)
 
 Check the inputs and working directory before restarting an interrupted run.
 
