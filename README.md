@@ -6,10 +6,6 @@ A step-by-step guide to preparing sample metadata, configuring a retrotransposit
   <img src="ReadmeImage/mascotas_retroatlas_principal.png" alt="RetroAtlas mascot" width="350">
 </p>
 
-
-
-**Tools:** Snakemake · Conda / Mamba · CSV + YAML
-
 ## Contents
 
 1. [Create a Snakemake environment](#1-create-a-snakemake-environment)
