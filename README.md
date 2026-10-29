@@ -146,7 +146,7 @@ Additional advanced configuration options are available for event reconstruction
 
 ## 5. Launch the Snakemake workflow
 
-![RetroAtlas mascot](ReadmeImage/mascotas_retroatlas_principal.png)
+![RetroAtlas mascot](ReadmeImage/mascota_retroatlas_cohete.png)
 
 After preparing the CSV files and editing the YAML configuration, activate the snakemake environment, open a terminal in the repository root and run:
 
@@ -158,7 +158,7 @@ For an HPC cluster that uses Slurm, job submission requires an appropriate Snake
 
 ## 6. Common problems and recovery
 
-![RetroAtlas troubleshooting mascot](retroatlas_readme_assets/mascota_retroatlas_frustrada.png)
+![RetroAtlas mascot](ReadmeImage/mascota_retroatlas_frustrada.png)
 
 Check the inputs and working directory before restarting an interrupted run.
 
