@@ -133,7 +133,10 @@ In **Compare** and **Atlas**, RetroAtlas preserves information from the initial 
 
 The purpose of rescue is not to label every initially missing insertion as present. It is to determine whether there is additional supporting evidence that can resolve an apparent discrepancy. Such evidence must still be interpreted together with local genomic callability.
 
-![Schematic of pairwise comparison and insertion rescue](ImageReadme/Figure_3_rescue_strategy.png)
+<img src="compare/workflow.png"
+     alt="RetroAtlas workflow: input, detection, characterization, and reports"
+     width="850">
+
 
 *Figure 3. Conceptual pairwise comparison workflow. Initial insertion sets are combined, unresolved candidates are re-examined using more sensitive evidence, and events are subsequently classified as common or sample-associated.*
 
@@ -141,7 +144,10 @@ The purpose of rescue is not to label every initially missing insertion as prese
 
 The following read-alignment example illustrates why targeted rescue can matter. An insertion detectable in one monozygotic twin may be absent from the other twin's **initial conventional caller output**, despite supporting alignment evidence at the corresponding locus. Re-examining the candidate in a pairwise analysis can recover evidence that was below the original calling threshold.
 
-![Read alignment example of a rescued insertion in monozygotic twins](ImageReadme/Figure_4_twin_rescue_example.png)
+<img src="rescue/workflow.png"
+     alt="RetroAtlas workflow: input, detection, characterization, and reports"
+     width="850">
+
 
 *Figure 4. Illustrative alignment view from two monozygotic twins (TWIN-1 and TWIN-2). The highlighted region in TWIN-2 shows local read-level evidence relevant to the rescue of an insertion initially missed by conventional variant calling. This example demonstrates a potential sensitivity benefit; it does not establish a general recovery rate.*
 
