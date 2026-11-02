@@ -1,0 +1,106 @@
+Title	Config file	Section	Parameter	Configured value	Type	Description
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Io_cores	2	integer	Threads used for data input/output, bounded by the allocated comparison or population resources.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_cores	0	integer	Workers for softclip evaluation. Zero uses the cores allocated to the comparison/population job.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_min_support	3.0	number	Standalone engine minimum primary ALT-read support. The pipeline overrides it with Variantcalling.Supp.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Min_svlen	50.0	number	Standalone engine minimum insertion length in base pairs. The pipeline overrides this value with Variantcalling.Min_svlen.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Require_pass_cover	true	boolean	Require passing coverage status for primary loci. The pipeline enforces true.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Require_pass_region	true	boolean	Require passing regional depth status for primary loci. The pipeline enforces true.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Require_resolved_class	true	boolean	Require a resolved repeat class for primary-event eligibility.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Require_resolved_event	true	boolean	Require a resolved event identity for primary-event eligibility.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Require_resolved_completeness	true	boolean	Require a resolved completeness classification for primary-event eligibility.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_window	500.0	number	Maximum positional distance in base pairs considered for primary-event matching.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_min_size_sim	0.8	number	Minimum insertion-length similarity for primary-event matching, as a fraction.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_seq_mode	conflicts	string	Sequence comparison policy: off, conflicts, or all. Conflicts limits comparisons to ambiguous primary matches.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_seq_identity	95.0	number	Minimum primary ALT-sequence identity, as a percentage.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_seq_coverage	90.0	number	Minimum aligned coverage of primary ALT sequences, as a percentage.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_seq_veto	true	boolean	Allow contradictory sequence evidence to reject an otherwise geometrically compatible primary match.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_seq_max_alignments	5000	integer	Maximum number of primary sequence alignments used to bound computation.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Primary_seq_max_cells	80000000.0	number	Maximum dynamic-programming matrix cells for primary sequence alignment.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q10_pos	5.0	number	Quality tier Q10: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q10_size	0.98	number	Quality tier Q10: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q9_pos	10.0	number	Quality tier Q9: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q9_size	0.95	number	Quality tier Q9: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q8_pos	25.0	number	Quality tier Q8: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q8_size	0.9	number	Quality tier Q8: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q7_pos	50.0	number	Quality tier Q7: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q7_size	0.9	number	Quality tier Q7: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q6_pos	100.0	number	Quality tier Q6: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q6_size	0.9	number	Quality tier Q6: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q5_pos	250.0	number	Quality tier Q5: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q5_size	0.9	number	Quality tier Q5: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q4_pos	500.0	number	Quality tier Q4: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q4_size	0.85	number	Quality tier Q4: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q3_pos	500.0	number	Quality tier Q3: maximum positional difference in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Q3_size	0.8	number	Quality tier Q3: minimum insertion-length similarity, as a fraction from 0 to 1.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Rescue_window	1000.0	number	Search radius in base pairs for rescue evidence around a locus.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Rescue_size_sim	0.8	number	Minimum insertion-length similarity for rescue matching, as a fraction.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_guard_enabled	true	boolean	Enable the guard against matching distinct nearby loci as the same event.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_window	1000.0	number	Neighborhood in base pairs examined by the duplicate-locus guard.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_geometry_window	100.0	number	Positional window in base pairs for geometrically similar duplicate candidates.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_geometry_size_sim	0.85	number	Minimum insertion-length similarity for duplicate geometry checks.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_align_enabled	true	boolean	Enable sequence alignment when evaluating duplicate candidates.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_align_min_size_sim	0.8	number	Minimum size similarity before attempting duplicate-candidate sequence alignment.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_seq_identity	95.0	number	Minimum sequence identity percentage used by duplicate checks.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_seq_coverage	90.0	number	Minimum alignment coverage percentage used by duplicate checks.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Duplicate_max_alignments_per_source	4	integer	Maximum duplicate-check alignments attempted per source locus.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Undermerge_seq_identity	95.0	number	Minimum sequence identity percentage when assessing potentially split representations of one event.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Undermerge_seq_coverage	90.0	number	Minimum alignment coverage percentage when assessing potentially split representations.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Vcf_window	500.0	number	Search distance in base pairs for regional caller records.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Vcf_size_sim	0.8	number	Minimum insertion-length similarity for caller-based evidence.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Vcf_require_pass	false	boolean	Require PASS caller records for VCF rescue evidence.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Vcf_allow_single_alt_caller	true	boolean	Allow a single alternative caller to support VCF rescue according to the remaining rescue criteria.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_enabled	true	boolean	Enable rescue/review using softclipped reads.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_input_mode	preload	string	How softclip records are loaded: preload or region. Atlas source caching requires preload.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_window	5000.0	number	Broad softclip search window in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_core_window	1000.0	number	Core softclip neighborhood in base pairs used around the event.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_min_identity	90.0	number	Minimum softclip sequence alignment identity, as a percentage.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_min_coverage	90.0	number	Minimum softclip alignment coverage, as a percentage.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_min_clips	3.0	number	Minimum number of supporting softclipped reads.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_min_cluster	3.0	number	Minimum number of softclips in a supporting cluster.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Clip_min_union_bp	200.0	number	Minimum union of aligned softclip bases required for support.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Fragment_enabled	true	boolean	Enable multi-component fragment evidence during rescue.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Fragment_window	1000.0	number	Search neighborhood in base pairs for multi-component fragment evidence.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Fragment_max_components	4.0	number	Maximum components combined for a fragment rescue candidate.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Fragment_max_span	1000.0	number	Maximum genomic span in base pairs of a fragment rescue candidate.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Fragment_size_sim	0.8	number	Minimum combined fragment-length similarity to the source event.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Require_all_vcf_for_differential	true	boolean	Require all expected caller evidence before assigning a differential/absent state.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Include_sex_chromosomes	true	boolean	Include sex chromosomes where sex and ploidy rules make them evaluable.
+Pairwise comparison parameters	Config/advance_compare.yaml	Comparison	Comparison.Write_tsv	true	boolean	Write tabular engine outputs. Must remain true for pipeline Compare and Atlas; Cleanall may remove them afterward.
+Pairwise comparison parameters	Config/advance_compare.yaml	Megadepth	Megadepth.Flank_bp	20000	integer	Flanking sequence/window length in base pairs; Tsd uses it for sequence extraction and Megadepth for regional evidence padding.
+Pairwise comparison parameters	Config/advance_compare.yaml	Megadepth	Megadepth.Min_softclip	50	integer	Minimum softclip length in base pairs extracted by Megadepth.
+Pairwise comparison parameters	Config/advance_compare.yaml	Megadepth	Megadepth.Breakpoint_cluster_bp	100	integer	Distance in base pairs for clustering extracted breakpoints.
+Pairwise comparison parameters	Config/advance_compare.yaml	Megadepth	Megadepth.Exclude_flags	260	integer	SAM flag bitmask excluding reads from softclip extraction (for example 260 excludes unmapped and secondary reads).
+Pairwise comparison parameters	Config/advance_compare.yaml	Megadepth	Megadepth.Coverage_exclude_flags	2308	integer	SAM flag bitmask excluding reads from coverage evidence.
+Pairwise comparison parameters	Config/advance_compare.yaml	Callers	Callers.Min_svlen	30	integer	Regional caller minimum insertion length in base pairs. The pipeline overrides this value with Variantcalling.Min_svlen.
+Pairwise comparison parameters	Config/advance_compare.yaml	Callers	Callers.Sniffles_phase	true	boolean	Enable phasing in regional Sniffles calls.
+Pairwise comparison parameters	Config/advance_compare.yaml	Callers	Callers.Sniffles_phase_conflict_threshold	0.1	number	Maximum phase-conflict fraction passed to regional Sniffles.
+Pairwise comparison parameters	Config/advance_compare.yaml	Callers	Callers.Cutesv_max_cluster_bias_ins	100	integer	Maximum insertion clustering bias in base pairs passed to regional cuteSV.
+Pairwise comparison parameters	Config/advance_compare.yaml	Callers	Callers.Cutesv_diff_ratio_merging_ins	0.3	number	Insertion difference ratio passed to regional cuteSV merging.
+Pairwise comparison parameters	Config/advance_compare.yaml	Report	Report.Promoter_bp	2000	integer	Strand-aware promoter window upstream of the selected transcript, in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Cluster_bp	10	integer	Distance in base pairs for clustering softclip positions.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Shared_peak_bp	25	integer	Maximum separation in base pairs for treating softclip peaks as shared.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Rescue_max_distance	1000	integer	Maximum positional distance in base pairs for softclip rescue.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Min_clip_len	50	integer	Minimum softclip sequence length in base pairs used for alignment.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Match	2.0	number	Positive alignment score awarded for a matching base.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Mismatch	-3.0	number	Nonpositive alignment score for a mismatching base.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Gap_open	5.0	number	Gap-opening penalty used by softclip sequence alignment.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Gap_extend	2.0	number	Gap-extension penalty used by softclip sequence alignment.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Min_aligned_bp	100	integer	Minimum aligned sequence length in base pairs.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Partial_identity	95.0	number	Minimum alignment identity percentage for partial softclip support.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Partial_coverage	80.0	number	Minimum alignment coverage percentage for partial support.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Partial_aligned_bp	200	integer	Minimum aligned length in base pairs for partial support.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Rescue_min_unique_sequences	2	integer	Minimum number of distinct softclip sequences required for rescue.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Alt_end_bp	30	integer	Distance in base pairs from an ALT-sequence end used to assess end support.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Near_full_alt_pct	80.0	number	ALT coverage percentage considered near-full-length support.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Min_sequence_entropy	1.2	number	Minimum sequence entropy accepted to limit low-complexity softclip evidence.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Max_align_cells	80000000.0	number	Maximum dynamic-programming matrix cells allowed per softclip alignment.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Read_chunk	10000	integer	Number of records read per input chunk.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Review_center_bp	100	integer	Neighborhood in base pairs around a candidate center for review evidence.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Review_center_min_peak	4	integer	Minimum peak support near the review center.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Review_pair_min_peak	3	integer	Minimum support for each peak in a review pair.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Review_source_min_peak	2	integer	Minimum source-peak support required for review.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Review_pair_min_separation	20	integer	Minimum distance in base pairs between paired review peaks.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Review_pair_max_separation	5000	integer	Maximum distance in base pairs between paired review peaks.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Shifted_rescue_window	5000	integer	Search radius in base pairs for shifted-position rescue evidence.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Competitor_score_ratio	0.97	number	Relative alignment-score threshold at which another locus becomes a plausible competitor.
+Pairwise comparison parameters	Config/advance_compare.yaml	Softclip	Softclip.Competitor_min_ambiguous_clips	2	integer	Minimum ambiguous softclips needed to flag competing locus support.

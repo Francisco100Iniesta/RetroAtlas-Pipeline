@@ -1,0 +1,129 @@
+Title	Config file	Section	Parameter	Configured value	Type	Description
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Catalog_id	COHORT	string	Safe catalogue identifier used in Atlas output paths; use letters, digits, dots, underscores or hyphens, up to 80 characters.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Public_detail	vectors	string	Public catalogue detail: vectors retains synchronized de-identified per-sample vectors; summary retains aggregate information.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Min_public_stratum_n	5	integer	Minimum stratum sample count for publishing stratified summaries.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Io_cores	2	integer	Threads used for data input/output, bounded by the allocated comparison or population resources.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_cores	0	integer	Workers for softclip evaluation. Zero uses the cores allocated to the comparison/population job.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_min_support	3	integer	Standalone engine minimum primary ALT-read support. The pipeline overrides it with Variantcalling.Supp.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Min_svlen	50	integer	Standalone engine minimum insertion length in base pairs. The pipeline overrides this value with Variantcalling.Min_svlen.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Require_pass_cover	true	boolean	Require passing coverage status for primary loci. The pipeline enforces true.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Require_pass_region	true	boolean	Require passing regional depth status for primary loci. The pipeline enforces true.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Require_resolved_class	true	boolean	Require a resolved repeat class for primary-event eligibility.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Require_resolved_event	true	boolean	Require a resolved event identity for primary-event eligibility.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Require_resolved_completeness	true	boolean	Require a resolved completeness classification for primary-event eligibility.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_window	500	integer	Maximum positional distance in base pairs considered for primary-event matching.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_min_size_sim	0.8	number	Minimum insertion-length similarity for primary-event matching, as a fraction.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_seq_mode	conflicts	string	Sequence comparison policy: off, conflicts, or all. Conflicts limits comparisons to ambiguous primary matches.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_seq_identity	95	integer	Minimum primary ALT-sequence identity, as a percentage.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_seq_coverage	90	integer	Minimum aligned coverage of primary ALT sequences, as a percentage.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_seq_veto	true	boolean	Allow contradictory sequence evidence to reject an otherwise geometrically compatible primary match.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_seq_max_alignments	5000	integer	Maximum number of primary sequence alignments used to bound computation.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Primary_seq_max_cells	80000000	integer	Maximum dynamic-programming matrix cells for primary sequence alignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q10_pos	5	integer	Quality tier Q10: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q10_size	0.98	number	Quality tier Q10: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q9_pos	10	integer	Quality tier Q9: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q9_size	0.95	number	Quality tier Q9: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q8_pos	25	integer	Quality tier Q8: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q8_size	0.9	number	Quality tier Q8: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q7_pos	50	integer	Quality tier Q7: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q7_size	0.9	number	Quality tier Q7: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q6_pos	100	integer	Quality tier Q6: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q6_size	0.9	number	Quality tier Q6: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q5_pos	250	integer	Quality tier Q5: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q5_size	0.9	number	Quality tier Q5: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q4_pos	500	integer	Quality tier Q4: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q4_size	0.85	number	Quality tier Q4: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q3_pos	500	integer	Quality tier Q3: maximum positional difference in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Q3_size	0.8	number	Quality tier Q3: minimum insertion-length similarity, as a fraction from 0 to 1.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Rescue_window	1000	integer	Search radius in base pairs for rescue evidence around a locus.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Rescue_size_sim	0.8	number	Minimum insertion-length similarity for rescue matching, as a fraction.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Reconcile_window	1000	integer	Maximum distance in base pairs considered when reconciling neighboring population loci.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Reconcile_min_size_sim	0.8	number	Minimum insertion-length similarity for population reconciliation.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Reconcile_align	true	boolean	Enable sequence alignment during population-locus reconciliation.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Reconcile_max_alignments	300	integer	Maximum sequence alignments attempted during reconciliation.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_guard_enabled	true	boolean	Enable the guard against matching distinct nearby loci as the same event.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_window	1000	integer	Neighborhood in base pairs examined by the duplicate-locus guard.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_geometry_window	100	integer	Positional window in base pairs for geometrically similar duplicate candidates.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_geometry_size_sim	0.85	number	Minimum insertion-length similarity for duplicate geometry checks.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_align_enabled	true	boolean	Enable sequence alignment when evaluating duplicate candidates.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_align_min_size_sim	0.8	number	Minimum size similarity before attempting duplicate-candidate sequence alignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_seq_identity	95	integer	Minimum sequence identity percentage used by duplicate checks.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_seq_coverage	90	integer	Minimum alignment coverage percentage used by duplicate checks.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Duplicate_max_alignments_per_source	4	integer	Maximum duplicate-check alignments attempted per source locus.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Undermerge_seq_identity	95	integer	Minimum sequence identity percentage when assessing potentially split representations of one event.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Undermerge_seq_coverage	90	integer	Minimum alignment coverage percentage when assessing potentially split representations.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Vcf_window	500	integer	Search distance in base pairs for regional caller records.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Vcf_size_sim	0.8	number	Minimum insertion-length similarity for caller-based evidence.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Vcf_require_pass	false	boolean	Require PASS caller records for VCF rescue evidence.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Vcf_allow_single_alt_caller	true	boolean	Allow a single alternative caller to support VCF rescue according to the remaining rescue criteria.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_enabled	true	boolean	Enable rescue/review using softclipped reads.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_input_mode	preload	string	How softclip records are loaded: preload or region. Atlas source caching requires preload.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_evaluation	unresolved_only	string	Evaluate softclips for unresolved_only states or for all states.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_window	5000	integer	Broad softclip search window in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_core_window	1000	integer	Core softclip neighborhood in base pairs used around the event.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_min_identity	90	integer	Minimum softclip sequence alignment identity, as a percentage.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_min_coverage	90	integer	Minimum softclip alignment coverage, as a percentage.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_min_clips	3	integer	Minimum number of supporting softclipped reads.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_min_cluster	3	integer	Minimum number of softclips in a supporting cluster.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_min_union_bp	200	integer	Minimum union of aligned softclip bases required for support.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Progress_batch_loci	1000	integer	Number of loci between population progress/checkpoint updates.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Evidence_scheduler	dynamic	string	Population evidence scheduling policy: dynamic assigns small chunks as workers become free; static uses fixed assignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Worker_chunk_loci	4	integer	Number of loci allocated in each population evidence worker chunk.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Clip_error_policy	abort	string	Behavior on softclip evaluation errors: abort fails the job; report records the error in its evidence output.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Source_clip_cache_enabled	true	boolean	Cache source softclip evidence for reuse; requires Clip_input_mode: preload.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Source_clip_cache_save_rds	true	boolean	Persist the source softclip cache as RDS; Cleanall removes it after reports finish.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Fragment_enabled	true	boolean	Enable multi-component fragment evidence during rescue.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Fragment_window	1000	integer	Search neighborhood in base pairs for multi-component fragment evidence.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Fragment_max_components	4	integer	Maximum components combined for a fragment rescue candidate.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Fragment_max_span	1000	integer	Maximum genomic span in base pairs of a fragment rescue candidate.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Fragment_size_sim	0.8	number	Minimum combined fragment-length similarity to the source event.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Rescue_require_callable	true	boolean	Require callable target coverage for a rescue assignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Require_all_vcf_for_differential	true	boolean	Require all expected caller evidence before assigning a differential/absent state.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Include_sex_chromosomes	true	boolean	Include sex chromosomes where sex and ploidy rules make them evaluable.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Write_tsv	true	boolean	Write tabular engine outputs. Must remain true for pipeline Compare and Atlas; Cleanall may remove them afterward.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Max_candidate_edges	3000000	integer	Upper bound on population candidate-matching edges to limit memory and computation.
+Population Atlas parameters	Config/advance_atlas.yaml	Population	Population.Min_samples	10	integer	Minimum cohort size required for Atlas, at least 2; the supplied configuration requires 10.
+Population Atlas parameters	Config/advance_atlas.yaml	Megadepth	Megadepth.Flank_bp	20000	integer	Flanking sequence/window length in base pairs; Tsd uses it for sequence extraction and Megadepth for regional evidence padding.
+Population Atlas parameters	Config/advance_atlas.yaml	Megadepth	Megadepth.Min_softclip	50	integer	Minimum softclip length in base pairs extracted by Megadepth.
+Population Atlas parameters	Config/advance_atlas.yaml	Megadepth	Megadepth.Breakpoint_cluster_bp	100	integer	Distance in base pairs for clustering extracted breakpoints.
+Population Atlas parameters	Config/advance_atlas.yaml	Megadepth	Megadepth.Exclude_flags	260	integer	SAM flag bitmask excluding reads from softclip extraction (for example 260 excludes unmapped and secondary reads).
+Population Atlas parameters	Config/advance_atlas.yaml	Megadepth	Megadepth.Coverage_exclude_flags	2308	integer	SAM flag bitmask excluding reads from coverage evidence.
+Population Atlas parameters	Config/advance_atlas.yaml	Callers	Callers.Min_svlen	30	integer	Regional caller minimum insertion length in base pairs. The pipeline overrides this value with Variantcalling.Min_svlen.
+Population Atlas parameters	Config/advance_atlas.yaml	Callers	Callers.Sniffles_phase	true	boolean	Enable phasing in regional Sniffles calls.
+Population Atlas parameters	Config/advance_atlas.yaml	Callers	Callers.Sniffles_phase_conflict_threshold	0.1	number	Maximum phase-conflict fraction passed to regional Sniffles.
+Population Atlas parameters	Config/advance_atlas.yaml	Callers	Callers.Cutesv_max_cluster_bias_ins	100	integer	Maximum insertion clustering bias in base pairs passed to regional cuteSV.
+Population Atlas parameters	Config/advance_atlas.yaml	Callers	Callers.Cutesv_diff_ratio_merging_ins	0.3	number	Insertion difference ratio passed to regional cuteSV merging.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Cluster_bp	10	integer	Distance in base pairs for clustering softclip positions.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Shared_peak_bp	25	integer	Maximum separation in base pairs for treating softclip peaks as shared.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Rescue_max_distance	1000	integer	Maximum positional distance in base pairs for softclip rescue.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Min_clip_len	50	integer	Minimum softclip sequence length in base pairs used for alignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Match	2.0	number	Positive alignment score awarded for a matching base.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Mismatch	-3.0	number	Nonpositive alignment score for a mismatching base.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Gap_open	5.0	number	Gap-opening penalty used by softclip sequence alignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Gap_extend	2.0	number	Gap-extension penalty used by softclip sequence alignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Min_aligned_bp	100	integer	Minimum aligned sequence length in base pairs.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Partial_identity	95.0	number	Minimum alignment identity percentage for partial softclip support.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Partial_coverage	80.0	number	Minimum alignment coverage percentage for partial support.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Partial_aligned_bp	200	integer	Minimum aligned length in base pairs for partial support.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Rescue_min_unique_sequences	2	integer	Minimum number of distinct softclip sequences required for rescue.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Alt_end_bp	30	integer	Distance in base pairs from an ALT-sequence end used to assess end support.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Near_full_alt_pct	80.0	number	ALT coverage percentage considered near-full-length support.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Min_sequence_entropy	1.2	number	Minimum sequence entropy accepted to limit low-complexity softclip evidence.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Max_align_cells	80000000.0	number	Maximum dynamic-programming matrix cells allowed per softclip alignment.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Read_chunk	10000	integer	Number of records read per input chunk.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Review_center_bp	100	integer	Neighborhood in base pairs around a candidate center for review evidence.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Review_center_min_peak	4	integer	Minimum peak support near the review center.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Review_pair_min_peak	3	integer	Minimum support for each peak in a review pair.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Review_source_min_peak	2	integer	Minimum source-peak support required for review.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Review_pair_min_separation	20	integer	Minimum distance in base pairs between paired review peaks.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Review_pair_max_separation	5000	integer	Maximum distance in base pairs between paired review peaks.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Shifted_rescue_window	5000	integer	Search radius in base pairs for shifted-position rescue evidence.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Competitor_score_ratio	0.97	number	Relative alignment-score threshold at which another locus becomes a plausible competitor.
+Population Atlas parameters	Config/advance_atlas.yaml	Softclip	Softclip.Competitor_min_ambiguous_clips	2	integer	Minimum ambiguous softclips needed to flag competing locus support.
+Population Atlas parameters	Config/advance_atlas.yaml	Windowbackup	Windowbackup.Workers	4	integer	Parallel workers for window-evidence export, capped by --cores.
+Population Atlas parameters	Config/advance_atlas.yaml	Windowbackup	Windowbackup.Window_bp	1000	integer	Width in base pairs of the population regional evidence backup windows.
+Population Atlas parameters	Config/advance_atlas.yaml	Windowbackup	Windowbackup.Min_callable_fraction	1.0	number	Minimum fraction of a region that must be callable; 1 requires the entire evaluated interval.
+Population Atlas parameters	Config/advance_atlas.yaml	Windowbackup	Windowbackup.Min_size_similarity	0.9	number	Minimum insertion-length similarity for evidence matching within exported windows.
+Population Atlas parameters	Config/advance_atlas.yaml	Windowbackup	Windowbackup.Max_size_difference_bp	50	integer	Maximum absolute insertion-length difference in base pairs for window evidence matching.
+Population Atlas parameters	Config/advance_atlas.yaml	Windowbackup	Windowbackup.Require_pass	false	boolean	Require PASS-filtered caller records in window evidence backups.
+Population Atlas parameters	Config/advance_atlas.yaml	Report	Report.Page_size	50	integer	Number of rows initially shown per page in the Atlas HTML tables.

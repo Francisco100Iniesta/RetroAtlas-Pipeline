@@ -1,0 +1,90 @@
+Title	Config file	Section	Parameter	Configured value	Type	Description
+Single analysis parameters	Config/advance_config.yaml	Referencevalidation	Referencevalidation.Mismatch_policy	error	string	Reference mismatch behavior: error aborts before analysis; warn excludes invalid chromosomes and records warnings. No valid primary chromosome always aborts.
+Single analysis parameters	Config/advance_config.yaml	Depth	Depth.Window_bp	1000	integer	Mosdepth coverage window width in base pairs. Windows are restricted to validated primary chromosomes and clipped at chromosome ends.
+Single analysis parameters	Config/advance_config.yaml	Hitsv	Hitsv.Min_svlen	50	integer	Minimum insertion length, in base pairs. In the base configuration it also controls downstream primary filtering; Hitsv can use its separate candidate threshold.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Query_threshold	80	integer	Minimum percent query coverage used in repeat/event reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Model_threshold	80	integer	Minimum percent repeat-model coverage used in repeat/event reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Group_dominance_threshold	0.8	number	Minimum fractional dominance of a repeat group for reconstruction classification.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Exact_locus_dpos	0	integer	Maximum positional difference in base pairs for the exact-locus tier.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Audit_dpos_max	500	integer	Maximum positional difference in base pairs considered by the reconstruction audit.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Heteroallelic_near_dpos_max	5	integer	Maximum positional separation in base pairs for nearby heteroallelic candidates.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Very_near_dpos_max	2	integer	Very near reconstruction tier: maximum position difference in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Very_near_size_min	0.85	number	Very near reconstruction tier: minimum insertion-length similarity, as a fraction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Near_dpos_max	10	integer	Near reconstruction tier: maximum position difference in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Near_size_min	0.9	number	Near reconstruction tier: minimum insertion-length similarity, as a fraction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Mid_dpos_max	25	integer	Mid reconstruction tier: maximum position difference in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Mid_size_min	0.93	number	Mid reconstruction tier: minimum insertion-length similarity, as a fraction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Far_dpos_max	100	integer	Far reconstruction tier: maximum position difference in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Far_size_min	0.95	number	Far reconstruction tier: minimum insertion-length similarity, as a fraction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Exact_event_flex_size_min	0.93	number	Minimum length similarity for flexible matching of events at the exact position.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Very_near_event_flex_dpos_max	5	integer	Very near reconstruction tier: flexible event matching maximum position difference in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Very_near_event_flex_size_min	0.97	number	Very near reconstruction tier: flexible event matching minimum insertion-length similarity, as a fraction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Near_event_flex_dpos_max	10	integer	Near reconstruction tier: flexible event matching maximum position difference in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Near_event_flex_size_min	0.98	number	Near reconstruction tier: flexible event matching minimum insertion-length similarity, as a fraction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Class_conflict_audit_dpos_max	2	integer	Maximum positional difference in base pairs for auditing conflicting repeat classes.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Class_conflict_audit_size_min	0.98	number	Minimum length similarity for the class-conflict audit.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Svlen_stable_min	0.95	number	Minimum size similarity classified as stable insertion length.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Svlen_moderate_min	0.85	number	Minimum size similarity classified as moderately consistent insertion length.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_primary_window	50	integer	Poly(A/T) primary detection: search window in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_primary_exact_run	9	integer	Poly(A/T) primary detection: minimum uninterrupted A/T run length.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_primary_tolerant_run	15	integer	Poly(A/T) primary detection: minimum A/T run length when mismatches are allowed.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_primary_mismatch_tolerance	2	integer	Poly(A/T) primary detection: maximum mismatches in a tolerant A/T run.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_rescue_window	100	integer	Poly(A/T) rescue detection: search window in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_rescue_exact_run	10	integer	Poly(A/T) rescue detection: minimum uninterrupted A/T run length.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_rescue_tolerant_run	15	integer	Poly(A/T) rescue detection: minimum A/T run length when mismatches are allowed.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Polyat_rescue_mismatch_tolerance	3	integer	Poly(A/T) rescue detection: maximum mismatches in a tolerant A/T run.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragmentation_mode	highconf	string	Fragment reconstruction policy; highconf enables the conservative high-confidence fragment workflow.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_population_policy	exclude_shadow_complex	string	Policy for including reconstructed fragments in downstream population analysis; exclude_shadow_complex excludes shadow and complex fragments.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_local_gap_bp	150	integer	Maximum local gap in base pairs used to connect fragment candidates.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_audit_window_bp	1000	integer	Neighborhood in base pairs examined for fragment audits.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_auto_max_components	3	integer	Maximum number of components accepted by automatic fragment reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_auto_max_span_bp	500	integer	Maximum genomic span in base pairs accepted for automatic reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_complex_min_components	4	integer	Component count at which a fragment group is considered complex.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_complex_span_bp	1000	integer	Genomic span in base pairs used to flag complex fragment groups.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_source_complex_min_components	6	integer	Component count used to mark the fragment source as complex.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_source_complex_span_bp	2000	integer	Span in base pairs used to mark the fragment source as complex.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_shadow_max_fraction	0.5	number	Maximum fraction allowed by the fragment shadow classification policy.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_repeat_near_bp	0	integer	Neighborhood around repeats, in base pairs, used by fragment classification.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_vcf_window_bp	1000	integer	Maximum search distance in base pairs for caller evidence supporting a fragment.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_vcf_min_svlen	20	integer	Minimum insertion length in base pairs for fragment-supporting caller evidence.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_vcf_min_similarity	0.8	number	Minimum insertion-length similarity for fragment caller evidence.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_vcf_strong_similarity	0.9	number	Length-similarity threshold for strong fragment caller evidence.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_auto_vcf_min_callers	2	integer	Minimum number of callers supporting automatic fragment reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_auto_require_vcf	false	boolean	Require caller evidence before accepting an automatic fragment reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_vcf_require_pass	false	boolean	Require PASS-filtered caller records for fragment support.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_anchored_dropout	true	boolean	Enable anchored fragment reconstruction when some components lack full evidence.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_anchored_min_component_lr	5	integer	Minimum read support required for an anchored fragment component.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_anchored_min_anchor_fraction	0.5	number	Minimum fraction of anchored components for anchored reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_anchored_max_unresolved	2	integer	Maximum unresolved components allowed in anchored reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_anchored_vcf_min_callers	2	integer	Minimum supporting callers for anchored reconstruction.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_anchored_vcf_similarity	0.9	number	Minimum insertion-length similarity for anchored caller evidence.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Fragment_anchored_require_same_event	true	boolean	Require anchored components to agree on event identity.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Write_audits	true	boolean	Write detailed reconstruction audit tables; Cleanall removes them after final reports succeed.
+Single analysis parameters	Config/advance_config.yaml	Eventreconstruction	Eventreconstruction.Write_legacy_rds	false	boolean	Also write legacy RDS objects for compatibility; Cleanall removes these exports.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Explicit_not_applicable	true	boolean	Represent biologically inapplicable classifier attributes explicitly.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Max_repeat_elements	10	integer	Maximum number of repeat elements retained by the TE classifier.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Alu_min_partial_bp	50	integer	Minimum aligned Alu fragment length in base pairs for partial classification.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Sva_min_partial_bp	100	integer	Minimum aligned SVA fragment length in base pairs for partial classification.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Sva_composite_min_fragment_bp	100	integer	Minimum fragment length in base pairs in a composite SVA call.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Sva_composite_min_fragments	2	integer	Minimum number of fragments required to classify a composite SVA.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.L1_3prime_tolerance_bp	100	integer	Allowed distance in base pairs from the L1 model 3-prime end.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.L1_strong_3prime_tolerance_bp	25	integer	Stricter distance in base pairs for strong L1 3-prime evidence.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Hml2_min_fragment_bp	50	integer	Minimum HERV-K/HML2 fragment length in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Hml2_ltr_names	[LTR5_Hs, LTR5A, LTR5B]	list	RepeatMasker LTR model names recognized as HERV-K/HML2 components. Values are case-sensitive.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Hml2_internal_name	HERVK-int	string	RepeatMasker model name for the internal HERV-K/HML2 component.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Interspersed_groups	[Alu, L1, SVA, MIR, tRNA, 5S, LTR, DNA, Other_SINE, Other_LINE, Other_retro]	list	Repeat groups treated as interspersed elements during classification. Values retain their original case.
+Single analysis parameters	Config/advance_config.yaml	Teclassifier	Teclassifier.Mobile_groups	[Alu, L1, SVA, HERVK_HML2]	list	Repeat groups classified as mobile elements.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Flank_bp	2000	integer	Flanking sequence/window length in base pairs; Tsd uses it for sequence extraction and Megadepth for regional evidence padding.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Min_anchor	100	integer	Minimum sequence-anchor length in base pairs for TSD detection.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Min_anchor_identity	90.0	number	Minimum anchor sequence identity, as a percentage.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Max_tsd	50	integer	Maximum accepted target-site duplication length in base pairs.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Min_tsd_identity	0.85	number	Minimum target-site duplication sequence identity, as a fraction from 0 to 1.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Min_callable_fraction	0.8	number	Minimum fraction of a region that must be callable; 1 requires the entire evaluated interval.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Size_tolerance	5	integer	Allowed insertion-size discrepancy in base pairs during TSD evaluation.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Ambiguity_identity_margin	0.02	number	Identity margin used to identify ambiguous TSD alignments.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Blast_task	blastn	string	BLAST nucleotide alignment task used by TSD detection, such as blastn.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Blast_evalue	10.0	number	Maximum BLAST expectation value used during TSD alignment.
+Single analysis parameters	Config/advance_config.yaml	Tsd	Tsd.Blast_word_size	11	integer	BLAST seed word size in nucleotides.
+Single analysis parameters	Config/advance_config.yaml	Finalization	Finalization.Window	2000	integer	Genomic padding in base pairs used when finalizing sample event regions.
+Single analysis parameters	Config/advance_config.yaml	Finalization	Finalization.Min_tsd	4	integer	Minimum TSD length in base pairs retained in final event classification.
+Single analysis parameters	Config/advance_config.yaml	Report	Report.Promoter_bp	2000	integer	Strand-aware promoter window upstream of the selected transcript, in base pairs.

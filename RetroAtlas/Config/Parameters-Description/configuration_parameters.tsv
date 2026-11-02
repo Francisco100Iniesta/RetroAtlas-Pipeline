@@ -1,0 +1,16 @@
+Title	Config file	Section	Parameter	Configured value	Type	Description
+Base configuration	Config/configuration.yaml	General	Outpath	/pool_sas/crh/RetroAtlas/SnakeMake/Twins1	string	Root directory for generated results. Relative paths are resolved from the launch directory.
+Base configuration	Config/configuration.yaml	General	Single	true	boolean	Generate individual sample analyses and reports for every row in Samples/samples.csv.
+Base configuration	Config/configuration.yaml	General	Retroatlas	false	boolean	Cluster all samples in Samples/samples.csv into one population catalogue and generate an Atlas report.
+Base configuration	Config/configuration.yaml	General	Compare	true	boolean	Analyze the explicit pairs in Samples/comparison.csv, including their individual processing and rescue evidence.
+Base configuration	Config/configuration.yaml	General	Adaptivesampling	false	boolean	Restrict analysis and coverage normalization to the target intervals supplied in Adaptivesamplingbed.
+Base configuration	Config/configuration.yaml	General	Adaptivesamplingbed	regions.bed	string	Target BED in the selected assembly, required when Adaptivesampling is true. Chromosome aliases are translated; coordinates are unchanged.
+Base configuration	Config/configuration.yaml	General	T2t	false	boolean	Select T2T-CHM13v2.0 (true) or GRCh38/hg38 (false). Selects chromosome validation, gene annotation and tandem-repeat tracks; does not lift coordinates between assemblies.
+Base configuration	Config/configuration.yaml	General	Seed	1231239	integer	Random seed for reproducible Atlas catalogue vector permutations.
+Base configuration	Config/configuration.yaml	General	Cleanall	true	boolean	After a successful complete run, retain only final HTML reports in pipeline-owned result folders. Remove intermediate evidence, RDS, VCF/TSV exports and analysis logs. Shared reference downloads and original inputs are retained. If false or omitted, only generated CRAM-to-BAM files and indexes are removed at completion. Partial or failed runs are not cleaned.
+Base configuration	Config/configuration.yaml	Variantcalling	Variantcalling.Rescue_supp	1	integer	Minimum supporting reads for regional rescue calls in Compare and Atlas.
+Base configuration	Config/configuration.yaml	Variantcalling	Variantcalling.Supp	3	integer	Minimum ALT-read support for primary variant calling and reportable events.
+Base configuration	Config/configuration.yaml	Variantcalling	Variantcalling.Min_svlen	30	integer	Minimum insertion length, in base pairs. In the base configuration it also controls downstream primary filtering; Hitsv can use its separate candidate threshold.
+Base configuration	Config/configuration.yaml	Variantcalling	Variantcalling.Cluster_size	500	integer	Distance in base pairs used when merging caller loci into HitSV windows.
+Base configuration	Config/configuration.yaml	Callabillity	Callabillity.Mindepth	10	integer	Absolute minimum coverage for callability. Zero disables the absolute cutoff, but positive coverage is still required.
+Base configuration	Config/configuration.yaml	Callabillity	Callabillity.Upperdepthratio	3	integer	Maximum regional depth divided by its normalization baseline; larger ratios are marked non-callable.
