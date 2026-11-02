@@ -51,9 +51,10 @@ RetroAtlas addresses these issues by integrating detection, reconstruction, anno
 
 
 
+
 ### How does RetroAtlas work?
 
-The workflow consists of four main stages:
+The workflow consists of five main stages:
 
 1. **Detection — multiple structural variant callers.** [Sniffles2](https://github.com/fritzsedlazeck/Sniffles), [cuteSV](https://github.com/tjiangHIT/cuteSV), and [Severus](https://github.com/KolmogorovLab/Severus) analyze BAM/CRAM alignments using complementary calling strategies to identify candidate genomic insertions.
 
@@ -61,7 +62,10 @@ The workflow consists of four main stages:
 
 3. **Characterization.** [HitSV](https://github.com/hitbc/HitSV) and [RepeatMasker](https://www.repeatmasker.org/) contribute to insertion characterization and repeat annotation. RepeatMasker uses the **curated [Dfam 4.0](https://dfam.org/) transposable element database** for repeat family identification and classification ([Storer et al., 2021](https://doi.org/10.1186/s13100-020-00230-y)). Additional analyses assess features such as **poly(A) tails**, **target-site duplications (TSDs)**, and reconstructed insertion architecture.
 
-4. **Callability and reporting.** Sequencing-depth information is used to assess which genomic regions can be evaluated reliably. The workflow integrates insertion evidence and biological annotations into sample-level and comparative reports.
+4. **Callability assessment and reporting.** [mosdepth](https://github.com/brentp/mosdepth) is used to calculate genome-wide sequencing depth and assess regional callability. Minimum coverage thresholds and upper-depth limits are applied to identify genomic regions suitable for reliable insertion assessment. The workflow integrates coverage information, insertion evidence, and biological annotations into detailed sample-level and comparative reports.
+
+5. **High-sensitivity evidence rescue and soft-clipping assessment.** In **Compare** and **Atlas** modes, RetroAtlas performs targeted rescue of insertion candidates that may have been missed by conventional structural variant calling. The pipeline re-examines low-support evidence from the original variant calls and uses [Megadepth](https://github.com/ChristopherWilks/megadepth) for soft-clipped read assessment. This strategy improves the sensitivity of insertion recovery and helps distinguish truly sample-specific events from insertions missed during initial detection, while accounting for genomic callability.
+
 
 
 <p align="center">
