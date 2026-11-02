@@ -64,9 +64,12 @@ The workflow consists of four main stages:
 4. **Callability and reporting.** Sequencing-depth information is used to assess which genomic regions can be evaluated reliably. The workflow integrates insertion evidence and biological annotations into sample-level and comparative reports.
 
 
-<img src="ReadmeImage/workflow.png"
-     alt="RetroAtlas workflow: input, detection, characterization, and reports"
-     width="850">
+<p align="center">
+  <img src="ReadmeImage/workflow.png"
+       alt="RetroAtlas workflow: input, detection, characterization, and reports"
+       width="850">
+</p>
+
 
 *Figure 1. Overview of RetroAtlas, from long-read BAM/CRAM alignments through multicaller insertion detection, sequence reconstruction, biological annotation, and reporting.*
 
