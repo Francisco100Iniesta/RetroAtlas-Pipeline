@@ -183,6 +183,7 @@ Genome-wide visualizations show where insertions occur, their density across chr
 
 *Figure 7. Example report showing the positional distribution and chromosomal density of insertions, together with their genomic context.*
 
+A single report for HG002 is aviable in Bechmark_HG002/
 ---
 
 ## Execution manual
