@@ -384,7 +384,21 @@ snakemake -s workflow/Snakefile --unlock
 > **Warning:** Use `--unlock` only after confirming that no other Snakemake process is running in the same working directory.
 
 ---
+## Authors & Citation
 
+**RetroAtlas** was developed by **Francisco Iniesta Martínez** and **Belén de la Morena Barrio**.
+
+### How to cite RetroAtlas
+
+If you use RetroAtlas in your research, please cite the software to acknowledge its development and support its continued maintenance.
+
+**Recommended citation:**
+
+Iniesta Martínez, F., & de la Morena Barrio, B. (2026). *RetroAtlas: A pipeline for detection, reconstruction, and characterization of retrotransposition events from long-read sequencing data* [Computer software]. GitHub. https://github.com/Francisco100Iniesta/RetroAtlas-Pipeline
+
+Citation metadata is also available in the [CITATION.cff](CITATION.cff) file.
+
+---
 ## Support
 
 Check the sample metadata and configuration before starting the workflow. For assistance, contact **francisco.iniestam1@um.es**.
