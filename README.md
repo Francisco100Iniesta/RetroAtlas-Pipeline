@@ -214,7 +214,7 @@ Download the repository as a ZIP archive from GitHub, or clone it with Git:
 
 ```bash
 git clone https://github.com/Francisco100Iniesta/RetroAtlas-Pipeline.git
-cd RetroAtlas-Pipeline
+cd RetroAtlas-Pipeline/RetroAtlas
 ```
 
 ### Expected directory layout
