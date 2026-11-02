@@ -158,6 +158,7 @@ The following read-alignment example illustrates why targeted rescue can matter.
 ## Biological reports
 
 RetroAtlas produces reports that complement event-level results with biologically interpretable summaries. Available visualizations include genome-wide callability, retrotransposon class composition, molecular event architecture, genotype composition, and genomic insertion distribution.
+A single report for HG002 is aviable in Bechmark_HG002/
 
 ### Genome-wide coverage and callability
 
@@ -183,7 +184,6 @@ Genome-wide visualizations show where insertions occur, their density across chr
 
 *Figure 7. Example report showing the positional distribution and chromosomal density of insertions, together with their genomic context.*
 
-A single report for HG002 is aviable in Bechmark_HG002/
 ---
 
 ## Execution manual
