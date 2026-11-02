@@ -357,7 +357,7 @@ Additional advanced configuration options are available for event reconstruction
 After preparing the CSV files and editing the YAML configuration, activate the Snakemake environment, open a terminal in the repository root, and run:
 
 ```bash
-snakemake -s workflow/Snakefile --cores 12 --sdm conda -p
+snakemake -s Workflow/Snakefile --sdm conda -p "$@" --cores 64 --resources mem_mb=120000
 ```
 
 To preview planned jobs without launching the full workflow, you can first use a dry run:
