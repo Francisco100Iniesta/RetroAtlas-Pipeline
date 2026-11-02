@@ -1,0 +1,211 @@
+configfile: "Config/configuration.yaml"
+
+import sys
+import math
+import yaml
+import os
+import re
+from pathlib import Path
+
+WORKFLOW_DIR = Path(workflow.basedir).resolve()
+PROJECT_DIR = WORKFLOW_DIR.parent
+sys.path.insert(0, str(WORKFLOW_DIR / "scripts"))
+from configuration import (load_samples, load_comparisons, merge_settings,
+                           validate_advanced, cli_resource_plan, BASE_DEFAULTS,
+                           validate_variant_calling, validate_compare)
+from atlas_configuration import validate_atlas
+from cleanup import cleanup_run
+config = merge_settings(BASE_DEFAULTS, config)
+RESOURCES = cli_resource_plan(workflow.cores, workflow.global_resources)
+CORES, RAM = RESOURCES["cores"], RESOURCES["ram"]
+CLEAN_ALL = config["CleanAll"]
+if not isinstance(CLEAN_ALL, bool):
+    raise ValueError("Cleanall must be a YAML boolean")
+OUTPATH = config["Outpath"].rstrip("/")
+VC = config["VariantCalling"]
+validate_variant_calling(VC)
+SUPPORT = int(VC["supp"])
+MIN_SVLEN = int(VC["min_svlen"])
+MERGE_DISTANCE = int(VC["cluster_size"])
+CHUNK_COUNT = CORES
+BCF_THREADS = min(6, CORES)
+ADAPTIVE = config.get("AdaptiveSampling", False)
+if not isinstance(ADAPTIVE, bool):
+    raise ValueError("AdaptiveSampling must be a YAML boolean")
+PANEL = config.get("AdaptiveSamplingBED")
+if ADAPTIVE and (not isinstance(PANEL, str) or not PANEL.strip()):
+    raise ValueError("AdaptiveSampling: true requires AdaptiveSamplingBED in the selected assembly")
+
+with open(WORKFLOW_DIR / "data" / "advance_defaults.yaml") as handle:
+    DEFAULT_ADV = yaml.safe_load(handle)
+ADV_CONFIG = PROJECT_DIR / "Config/advance_config.yaml"
+with open(ADV_CONFIG) as handle:
+    ADV = merge_settings(DEFAULT_ADV, yaml.safe_load(handle) or {})
+validate_advanced(ADV, DEFAULT_ADV)
+if not isinstance(config.get("T2T", False), bool):
+    raise ValueError("T2T must be a YAML boolean")
+ASSEMBLY_KEY = "T2T" if config.get("T2T", False) else "hg38"
+ASSEMBLY = "T2T-CHM13v2.0" if ASSEMBLY_KEY == "T2T" else "GRCh38.p14"
+CATALOG = str(WORKFLOW_DIR / "data" / "reference" / (ASSEMBLY_KEY + ".chromosomes.tsv"))
+ANNOTATION_DIR = WORKFLOW_DIR / "data" / "annotations"
+MANE = str(ANNOTATION_DIR / (ASSEMBLY_KEY + ".genes.bed"))
+REPEATS = str(ANNOTATION_DIR / (ASSEMBLY_KEY + ".repeats.bed"))
+CALLABILITY = config["Callabillity"]
+if not all(math.isfinite(float(CALLABILITY[k])) for k in ("MinDepth", "UpperDepthRatio")) or float(CALLABILITY["MinDepth"]) < 0 or float(CALLABILITY["UpperDepthRatio"]) <= 0:
+    raise ValueError("Invalid Callabillity limits")
+if ADV["ReferenceValidation"]["mismatch_policy"] not in {"error", "warn"}:
+    raise ValueError("mismatch_policy must be error or warn")
+if not isinstance(ADV["Depth"]["window_bp"], int) or ADV["Depth"]["window_bp"] < 1:
+    raise ValueError("Depth.window_bp must be a positive integer")
+HITSV_BIN = str(WORKFLOW_DIR / "scripts" / "HitSV_2.0.4")
+FAMDB_DIR = str(WORKFLOW_DIR / "data" / "RepeatMasker" / "famdb")
+# FamDB 3.0 necesita el archivo raíz y la partición de consensos curados.
+FAMDB_ROOT_H5 = FAMDB_DIR + "/dfam40.0.h5"
+FAMDB_ROOT_URL = "https://dfam.org/releases/Dfam_4.0/families/FamDB/dfam40.0.h5.gz"
+FAMDB_H5 = FAMDB_DIR + "/dfam40.curated.consensus.0.h5"
+FAMDB_URL = "https://dfam.org/releases/Dfam_4.0/families/FamDB/dfam40.curated.consensus.0.h5.gz"
+
+for mode in ("Single", "Compare", "RetroAtlas"):
+    if not isinstance(config.get(mode, False), bool):
+        raise ValueError(f"{mode} must be a YAML boolean")
+ATLAS = config.get("RetroAtlas", False)
+if not any(config.get(mode, False) for mode in ("Single", "Compare", "RetroAtlas")):
+    raise ValueError("Selecciona Single, Compare o RetroAtlas")
+if min(CORES, RAM, SUPPORT, MIN_SVLEN) < 1 or MERGE_DISTANCE < 0:
+    raise ValueError("Recursos, supp y min_svlen deben ser positivos; cluster_size >= 0.")
+
+
+SAMPLES = load_samples(PROJECT_DIR / "Samples/samples.csv")
+COMPARISONS = load_comparisons(PROJECT_DIR / "Samples/comparison.csv", SAMPLES) if config["Compare"] else {}
+SAMPLE_NAMES = list(SAMPLES) if config["Single"] or ATLAS or not COMPARISONS else list(dict.fromkeys(s for pair in COMPARISONS.values() for s in pair))
+if any(SAMPLES[s]["FILE"] == "CRAM" for s in SAMPLE_NAMES) and CORES < 8:
+    raise ValueError("CRAM conversion requires --cores >= 8")
+RESCUE_SUPPORT = VC.get("Rescue_supp", 1)
+if not isinstance(RESCUE_SUPPORT, int) or isinstance(RESCUE_SUPPORT, bool) or RESCUE_SUPPORT < 1:
+    raise ValueError("VariantCalling.Rescue_supp must be a positive integer")
+if COMPARISONS:
+    with open(WORKFLOW_DIR / "data/compare_defaults.yaml") as h:
+        COMPARE_DEFAULTS = yaml.safe_load(h)
+    with open(PROJECT_DIR / "Config/advance_compare.yaml") as h:
+        CADV = merge_settings(COMPARE_DEFAULTS, yaml.safe_load(h) or {})
+    validate_advanced(CADV, COMPARE_DEFAULTS)
+    validate_compare(CADV)
+    CADV["Comparison"].update(primary_min_support=SUPPORT, min_svlen=MIN_SVLEN, require_pass_cover=True, require_pass_region=True)
+    CADV["Callers"]["min_svlen"] = MIN_SVLEN
+    if not CADV["Comparison"]["write_tsv"]:
+        raise ValueError("Compare requires write_tsv: true for its outputs")
+    if min(CADV["Comparison"]["io_cores"], CADV["Megadepth"]["min_softclip"]) < 1 or CADV["Comparison"]["clip_cores"] < 0:
+        raise ValueError("Compare threads/min_softclip must be positive")
+    if max(ADV["Finalization"]["window"], CADV["Comparison"]["vcf_window"]) + CADV["Megadepth"]["flank_bp"] < CADV["Comparison"]["clip_window"]:
+        raise ValueError("Megadepth flank plus region padding must cover Comparison.clip_window")
+CALLERS = ["sniffles2", "cutesv", "severus"]
+
+ATLAS_TARGETS = []
+if ATLAS:
+    with open(WORKFLOW_DIR / "data/atlas_defaults.yaml") as h:
+        ATLAS_DEFAULTS = yaml.safe_load(h)
+    with open(PROJECT_DIR / "Config/advance_atlas.yaml") as h:
+        AADV = merge_settings(ATLAS_DEFAULTS, yaml.safe_load(h) or {})
+    validate_advanced(AADV, ATLAS_DEFAULTS)
+    validate_atlas(AADV, SAMPLES, ADV["Finalization"]["window"])
+    AADV["Population"].update(primary_min_support=SUPPORT, min_svlen=MIN_SVLEN,
+                              require_pass_cover=True, require_pass_region=True)
+    AADV["Callers"]["min_svlen"] = MIN_SVLEN
+    ATLAS_OUT = OUTPATH + "/Atlas/intermediates/" + AADV["Population"]["catalog_id"]
+    ATLAS_PUBLIC = OUTPATH + "/Atlas/anonimiced/" + AADV["Population"]["catalog_id"]
+    if "Atlas" in SAMPLES or "Atlas" in COMPARISONS:
+        raise ValueError("Atlas is reserved as an output directory when RetroAtlas is enabled")
+    ATLAS_TARGETS = [ATLAS_OUT + "/validation.txt", ATLAS_OUT + "/atlas_report.html",
+                     ATLAS_PUBLIC + "/Atlas_merge.rds", ATLAS_PUBLIC + "/population_summary.tsv"]
+
+
+def bam_for_sample(wc):
+    if SAMPLES[wc.sample]["FILE"] == "CRAM":
+        return OUTPATH + f"/{wc.sample}/BAM/{wc.sample}.bam"
+    return SAMPLES[wc.sample]["PATH"]
+
+
+def ref_for_sample(wc):
+    return SAMPLES[wc.sample]["REF"]
+
+
+def fai_for_sample(wc):
+    return ref_for_sample(wc) + ".fai"
+
+
+def panel_for_sample(wc):
+    return [OUTPATH + f"/{wc.sample}/Reference/{wc.sample}_panel.bed"] if ADAPTIVE else []
+
+
+def index_for_sample(wc):
+    bam = bam_for_sample(wc)
+    suffix = ".bai"
+    candidates = [bam + suffix, str(Path(bam).with_suffix(suffix)), bam + ".csi", str(Path(bam).with_suffix(".csi"))]
+    return next((p for p in candidates if os.path.isfile(p)), candidates[0])
+
+
+wildcard_constraints:
+    sample="|".join(re.escape(s) for s in SAMPLE_NAMES),
+    caller="sniffles2|cutesv|severus"
+
+
+# Atlas uses the complete sample list; individual exports follow selected modes.
+REPORT_SAMPLES = list(SAMPLES) if config["Single"] else list(dict.fromkeys(
+    s for pair in COMPARISONS.values() for s in pair))
+REPORT_TARGETS = (
+    expand(OUTPATH + "/{sample}/Report/{sample}_report.html", sample=REPORT_SAMPLES)
+    + expand(OUTPATH + "/{comparison}/{comparison}_report.html", comparison=COMPARISONS)
+    + ([ATLAS_OUT + "/atlas_report.html"] if ATLAS else [])
+)
+FINAL_TARGETS = REPORT_TARGETS + expand(
+    OUTPATH + "/{sample}/Report/{sample}_insertions.vcf", sample=REPORT_SAMPLES)
+if ATLAS:
+    FINAL_TARGETS += [ATLAS_OUT + "/Atlas_merge.rds",
+                     ATLAS_OUT + "/population_" + AADV["Population"]["catalog_id"] + "_internal.rds",
+                     ATLAS_PUBLIC + "/Atlas_merge.rds", ATLAS_PUBLIC + "/population_summary.tsv",
+                     ATLAS_PUBLIC + "/population_loci.bed", ATLAS_PUBLIC + "/rescues_summary.tsv"]
+FULL_TARGETS = [
+        FINAL_TARGETS,
+        expand(OUTPATH + "/{sample}/Report/{sample}_report.html", sample=REPORT_SAMPLES),
+        expand(OUTPATH + "/{sample}/Report/{sample}_insertions.vcf", sample=REPORT_SAMPLES),
+        expand(OUTPATH + "/{sample}/Report/{sample}_report.tsv", sample=REPORT_SAMPLES),
+        expand(OUTPATH + "/{sample}/Event_Reconstruction/{sample}_Final.rds", sample=SAMPLE_NAMES),
+        expand(OUTPATH + "/{sample}/Event_Reconstruction/{sample}_Final.tsv", sample=SAMPLE_NAMES),
+        expand(OUTPATH + "/{sample}/Event_Reconstruction/{sample}_excluded_loci.tsv", sample=SAMPLE_NAMES),
+        expand(OUTPATH + "/{comparison}/{comparison}_report.html", comparison=COMPARISONS),
+        expand(OUTPATH + "/{comparison}/Compare_{comparison}.rds", comparison=COMPARISONS),
+        ATLAS_TARGETS
+]
+
+rule all:
+    input: FINAL_TARGETS if CLEAN_ALL else FULL_TARGETS
+    # A completion job also runs when final products already exist, allowing cleanup
+    # after changing Cleanall without forcing any biological analysis to rerun.
+    shell: "echo 'All enabled RetroAtlas final products are complete.'"
+
+
+onsuccess:
+    # Partial/debug targets must retain their evidence. A successful complete run
+    # includes every enabled report, so rescue jobs can safely finish first.
+    if any(job.rule.name == "all" for job in workflow.dag.targetjobs):
+        cleanup_run(OUTPATH, SAMPLES, SAMPLE_NAMES, COMPARISONS,
+                    REPORT_TARGETS, CLEAN_ALL, final_outputs=FINAL_TARGETS,
+                    atlas_private=ATLAS_OUT if ATLAS else None,
+                    atlas_public=ATLAS_PUBLIC if ATLAS else None,
+                    protected_inputs=[PANEL] if ADAPTIVE else [],
+                    generated=[str(p) for job in workflow.dag.jobs for p in list(job.output) + list(job.log)])
+
+
+include: "rules/annotations.smk"
+include: "rules/preparation.smk"
+include: "rules/depth.smk"
+include: "rules/variant_calling.smk"
+include: "rules/hitsv.smk"
+include: "rules/repeatmasker.smk"
+include: "rules/event_reconstruction.smk"
+
+if COMPARISONS:
+    include: "rules/compare.smk"
+
+if ATLAS:
+    include: "rules/atlas.smk"
