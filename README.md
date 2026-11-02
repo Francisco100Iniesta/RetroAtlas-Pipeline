@@ -385,19 +385,34 @@ snakemake -s workflow/Snakefile --unlock
 > **Warning:** Use `--unlock` only after confirming that no other Snakemake process is running in the same working directory.
 
 ---
+
 ## Authors & Citation
 
-**RetroAtlas** was developed by **Francisco Iniesta Martínez** and **Belén de la Morena Barrio**.
+### Authors
+
+**RetroAtlas** was developed by the following authors:
+
+1. **Francisco Iniesta Martínez** — Instituto Murciano de Investigación Biosanitaria Pascual Parrilla (IMIB), Murcia, Spain. [Research profile](https://www.imib.es/web/personal/expertise.jsf?id=59333).
+
+2. **Belén de la Morena Barrio** — IMIB / CIBERER, Murcia, Spain. [ORCID: 0000-0002-6696-7762](https://orcid.org/0000-0002-6696-7762).
+
+3. **María Llamas López** — Universidad de Murcia / IMIB, Murcia, Spain. [Research profile](https://www.imib.es/web/personal.jsf?id=24065).
+
+4. **Javier Corral de la Calle** — Universidad de Murcia / IMIB, Murcia, Spain. [ORCID: 0000-0003-0288-1107](https://orcid.org/0000-0003-0288-1107) | [Research profile](https://portalinvestigacion.um.es/investigadores/331836/detalle).
 
 ### How to cite RetroAtlas
 
-If you use RetroAtlas in your research, please cite the software to acknowledge its development and support its continued maintenance.
+If you use **RetroAtlas** in your research, please cite the software to acknowledge its development and support its continued maintenance.
 
 **Recommended citation:**
 
-Iniesta Martínez, F., & de la Morena Barrio, B. (2026). *RetroAtlas: A pipeline for detection, reconstruction, and characterization of retrotransposition events from long-read sequencing data* [Computer software]. GitHub. https://github.com/Francisco100Iniesta/RetroAtlas-Pipeline
+> Iniesta Martínez, F., de la Morena Barrio, B., Llamas López, M., & Corral de la Calle, J. *RetroAtlas: A pipeline for detection, reconstruction, and characterization of retrotransposition events from long-read sequencing data* [Computer software]. GitHub. https://github.com/Francisco100Iniesta/RetroAtlas-Pipeline
 
-Citation metadata is also available in the [CITATION.cff](CITATION.cff) file.
+For reproducibility, please specify the software version or Git commit used in your analysis.
+
+Citation metadata is available in the [CITATION.cff](CITATION.cff) file. GitHub provides automatic citation export in APA and BibTeX formats through the **"Cite this repository"** option.
+
+If a corresponding scientific publication or DOI becomes available, its reference will be provided here.
 
 ---
 ## Support
