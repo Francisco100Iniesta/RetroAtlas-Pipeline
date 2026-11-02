@@ -1,3 +1,4 @@
+import json
 import subprocess
 
 command = ['Rscript', snakemake.input.cli, '--rds', snakemake.input.rds,
@@ -8,7 +9,8 @@ command = ['Rscript', snakemake.input.cli, '--rds', snakemake.input.rds,
            '--template', snakemake.input.template, '--reference', snakemake.params.assembly,
            '--primary-min-support', str(snakemake.params.primary_support), '--min-svlen', str(snakemake.params.min_svlen),
            '--min-depth', str(snakemake.params.min_depth), '--upper-depth-ratio', str(snakemake.params.upper_ratio),
-           '--promoter-bp', str(snakemake.params.promoter)]
+           '--promoter-bp', str(snakemake.params.promoter),
+           '--run-config', json.dumps(snakemake.params.run_config)]
 if snakemake.input.mane:
     command += ['--mane', snakemake.input.mane[0], '--mane-assembly', snakemake.params.assembly]
 if snakemake.input.panel:
