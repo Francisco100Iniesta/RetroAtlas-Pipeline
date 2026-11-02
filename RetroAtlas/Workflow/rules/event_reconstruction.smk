@@ -31,8 +31,6 @@ rule event_reconstruction:
     conda: "../envs/event_reconstruction.yaml"
     log: OUTPATH + "/{sample}/logs/event_reconstruction.log"
     script: "../scripts/run_reconstruction.py"
-
-
 rule tsd:
     input:
         bed=OUTPATH + "/{sample}/Event_Reconstruction/{sample}_samtools.bed",
@@ -49,8 +47,6 @@ rule tsd:
     conda: "../envs/tsd.yaml"
     log: OUTPATH + "/{sample}/logs/tsd.log"
     script: "../scripts/run_tsd.py"
-
-
 rule finalize_sample:
     input:
         regions=OUTPATH + "/{sample}/Depth/{sample}.regions.bed.gz",
@@ -90,8 +86,6 @@ rule finalize_sample:
         "--regions {input.regions:q} --min-depth {params.min_depth} --upper-ratio {params.upper_ratio} "
         "--primary-min-support {params.primary_support} --min-svlen {params.min_svlen} "
         "--out {params.out:q} {params.panel_arg} {input.panel:q} > {log:q} 2>&1"
-
-
 rule report_sample:
     input:
         panel=panel_for_sample,
@@ -110,7 +104,8 @@ rule report_sample:
     params:
         assembly=ASSEMBLY, primary_support=SUPPORT, min_svlen=MIN_SVLEN,
         min_depth=CALLABILITY["MinDepth"], upper_ratio=CALLABILITY["UpperDepthRatio"],
-        promoter=ADV["Report"]["promoter_bp"]
+        promoter=ADV["Report"]["promoter_bp"],
+        run_config={"configuration": config, "advance_config": ADV, "resources": RESOURCES}
     threads: 1
     resources:
         mem_mb=min(RAM, 16000)
