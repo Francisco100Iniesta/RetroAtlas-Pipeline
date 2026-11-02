@@ -44,10 +44,6 @@ RetroAtlas integrates insertion detection with downstream, sequence-aware annota
 
 The presence of retroelement-derived sequence does **not**, by itself, establish that a newly detected insertion arose through an active retrotransposition mechanism. Likewise, absence of a detectable poly(A) tail or TSD does not automatically exclude a complex or truncated retroelement-associated event.
 
-### Suggested summary for a Results section
-
-> In HG002, RetroAtlas v9 recovered **96.95%** of xTea ALL insertions (1,592/1,642), **97.84%** of the xTea TPRT subset (1,498/1,531), and **97.67%** of the evaluated HGSVC3 insertion callset (1,426/1,460), using chromosome-consistent, one-to-one matching within ±150 bp. Beyond positional concordance, RetroAtlas reported **2,769 retroelement-associated insertion loci**, including **40 putative multicopy architectures**, **35 LINE-1 inversions**, and **487 embedded structures**. The pipeline preserves available inserted sequences and genotypes to support future refinement of partially reconstructed or unresolved events.
-
 ### Scope and limitations
 
 These numbers refer to **RetroAtlas v9 on HG002** and represent a benchmark of the current experimental classifier, not a claim of superiority over xTea or HGSVC3. The pipeline's complex-architecture assignments remain under review, particularly for embedded and multi-family events. Independent validation and explicit false-positive assessment are required before making publication-level claims about precision or overall performance.
