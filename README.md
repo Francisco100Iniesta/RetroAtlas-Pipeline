@@ -82,9 +82,8 @@ The pairwise sample IDs must match the IDs in your sample manifest.
 
 ## 4. Configure your analysis
 
-![Configuration directory layout](retroatlas_readme_assets/config-layout.png)
 
-Modify config/configuration.yaml to select the output path, analysis mode, dete![Samples directory layout](retroatlas_readme_assets/samples-layout.png)ction thresholds and optional features.
+Modify config/configuration.yaml to select the output path, analysis mode, detection thresholds and optional features.
 
 ```yaml
 # Output directory
