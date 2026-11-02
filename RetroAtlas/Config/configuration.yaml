@@ -4,7 +4,7 @@ Outpath: "Results/Test"
 # LAUNCH PARAMETERS
 Single: true
 Retroatlas: true
-Compare: true
+Compare: false
 
 # VARIANT CALLING PARAMETERS
 Variantcalling:
