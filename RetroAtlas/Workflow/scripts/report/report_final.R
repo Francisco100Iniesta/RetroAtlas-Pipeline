@@ -11,7 +11,7 @@ parse_args <- function(argv) {
   o <- list(rds = NULL, mane = NULL, regions_bed = NULL,
             chromosome_map=NULL, chromosome_lengths=NULL, catalog=NULL, helpers=NULL, template=NULL,
             tsv=NULL, mane_assembly=NULL, primary_min_support='3', min_svlen='30', min_depth='0', upper_depth_ratio='3', panel_bed=NULL,
-            out = 'atlas_report_final.html', vcf = NULL, readme = NULL,
+            out = 'atlas_report_final.html', vcf = NULL, readme = NULL, run_config='{}',
             reference = 'unknown', promoter_bp = '2000')
   i <- 1L
   while (i <= length(argv)) {
@@ -232,6 +232,11 @@ meta<-list(chromosomes=as.list(chroms), chromosomeLengths=as.list(chromosome_len
   maneOriginal=original_mane_n,maneSelect=sum(mane$maneStatus=='MANE Select'),
   manePlus=sum(mane$maneStatus=='MANE Plus Clinical'),refseqSelect=sum(mane$maneStatus=='RefSeq Select Curated'),reference=opts$reference,
   coverageFile=if(is.null(opts$regions_bed)) 'Not supplied' else basename(opts$regions_bed))
+meta$runConfiguration <- jsonlite::fromJSON(opts$run_config,simplifyVector=FALSE)
+meta$rdsParameters <- input$parameters
+meta$reportParameters <- list(primary_min_support=as.numeric(opts$primary_min_support),
+  min_svlen=as.numeric(opts$min_svlen),min_depth=opts$min_depth,
+  upper_depth_ratio=opts$upper_depth_ratio,promoter_bp=opts$promoter_bp,reference=opts$reference)
 extra_readme<-if(is.null(opts$readme)) '' else
   paste(readLines(opts$readme,warn=FALSE,encoding='UTF-8'),collapse='\n')
 
