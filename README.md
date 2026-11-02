@@ -50,6 +50,7 @@ Retrotransposon analysis involves challenges that are not fully resolved by a si
 RetroAtlas addresses these issues by integrating detection, reconstruction, annotation, **coverage-aware interpretation**, and targeted searches for otherwise missed insertion evidence.
 
 
+
 ### How does RetroAtlas work?
 
 The workflow consists of four main stages:
@@ -58,7 +59,7 @@ The workflow consists of four main stages:
 
 2. **Sequence reconstruction.** Insertion candidates undergo dedicated sequence reconstruction to improve the sequence available for downstream biological interpretation.
 
-3. **Characterization.** [HitSV](https://github.com/hitbc/HitSV) and [RepeatMasker](https://www.repeatmasker.org/) contribute to insertion characterization and repeat annotation. Additional analyses assess features such as **poly(A) tails**, **target-site duplications (TSDs)**, and reconstructed insertion architecture.
+3. **Characterization.** [HitSV](https://github.com/hitbc/HitSV) and [RepeatMasker](https://www.repeatmasker.org/) contribute to insertion characterization and repeat annotation. RepeatMasker uses the **curated [Dfam 4.0](https://dfam.org/) transposable element database** for repeat family identification and classification ([Storer et al., 2021](https://doi.org/10.1186/s13100-020-00230-y)). Additional analyses assess features such as **poly(A) tails**, **target-site duplications (TSDs)**, and reconstructed insertion architecture.
 
 4. **Callability and reporting.** Sequencing-depth information is used to assess which genomic regions can be evaluated reliably. The workflow integrates insertion evidence and biological annotations into sample-level and comparative reports.
 
@@ -95,7 +96,7 @@ $$
 
 > **Interpretation:** This is a *theoretical allele-sampling probability*, **not** an empirically measured false-negative rate or the overall error rate of RetroAtlas. Actual detection sensitivity also depends on alignment quality, insertion structure, caller behavior, read length, allele balance, and other factors.
 
-As an example, `MinDepth: 10` sets a minimum depth criterion, while `UpperDepthRatio: 3` excludes regions exceeding three times the applicable coverage baseline according to the pipeline's callability assessment. The thresholds are configurable and should be interpreted in the context of the dataset.
+As an example, `MinDepth: 10` sets a minimum depth criterion, while `UpperDepthRatio: 3` excludes regions exceeding three times the applicable coverage baseline according to the pipeline's callability assessment. Additionally, the `supp` parameter allows you to specify the minimum number of supporting reads required to consider an insertion. These thresholds are configurable and should be interpreted in the context of the dataset.
 
 For comparative analyses, callability is evaluated with respect to the samples being compared. Importantly, **a missing insertion call in a non-callable region should not be interpreted as confirmed absence**.
 
