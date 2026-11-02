@@ -1,5 +1,5 @@
 # OUTPUT
-Outpath: "Results/FinalTest"
+Outpath: "Results/Test"
 
 # LAUNCH PARAMETERS
 Single: true
@@ -23,6 +23,6 @@ Callabillity:
 Adaptivesampling: false
 Adaptivesamplingbed: regions.bed
 T2t: false
-Seed: 1231239
+Seed: 123456789
 # Keep final HTML/VCF and Atlas RDS/table products after all enabled objectives succeed.
 Cleanall: false
