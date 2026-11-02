@@ -1,0 +1,110 @@
+Comparison:
+  Io_cores: 2
+  Clip_cores: 0  # 0: use all allocated comparison cores
+  Primary_min_support: 3.0  # Standalone only; pipeline uses Variantcalling.Supp
+  Min_svlen: 50.0  # Standalone only; pipeline uses Variantcalling.Min_svlen
+  Require_pass_cover: yes  # Pipeline always enforces current callability
+  Require_pass_region: yes  # Pipeline always enforces current callability
+  Require_resolved_class: yes
+  Require_resolved_event: yes
+  Require_resolved_completeness: yes
+  Primary_window: 500.0
+  Primary_min_size_sim: 0.8
+  Primary_seq_mode: conflicts
+  Primary_seq_identity: 95.0
+  Primary_seq_coverage: 90.0
+  Primary_seq_veto: yes
+  Primary_seq_max_alignments: 5000
+  Primary_seq_max_cells: 8.0e+07
+  Q10_pos: 5.0
+  Q10_size: 0.98
+  Q9_pos: 10.0
+  Q9_size: 0.95
+  Q8_pos: 25.0
+  Q8_size: 0.9
+  Q7_pos: 50.0
+  Q7_size: 0.9
+  Q6_pos: 100.0
+  Q6_size: 0.9
+  Q5_pos: 250.0
+  Q5_size: 0.9
+  Q4_pos: 500.0
+  Q4_size: 0.85
+  Q3_pos: 500.0
+  Q3_size: 0.8
+  Rescue_window: 1000.0
+  Rescue_size_sim: 0.8
+  Duplicate_guard_enabled: yes
+  Duplicate_window: 1000.0
+  Duplicate_geometry_window: 100.0
+  Duplicate_geometry_size_sim: 0.85
+  Duplicate_align_enabled: yes
+  Duplicate_align_min_size_sim: 0.8
+  Duplicate_seq_identity: 95.0
+  Duplicate_seq_coverage: 90.0
+  Duplicate_max_alignments_per_source: 4
+  Undermerge_seq_identity: 95.0
+  Undermerge_seq_coverage: 90.0
+  Vcf_window: 500.0
+  Vcf_size_sim: 0.8
+  Vcf_require_pass: no
+  Vcf_allow_single_alt_caller: yes
+  Clip_enabled: yes
+  Clip_input_mode: preload
+  Clip_window: 5000.0
+  Clip_core_window: 1000.0
+  Clip_min_identity: 90.0
+  Clip_min_coverage: 90.0
+  Clip_min_clips: 3.0
+  Clip_min_cluster: 3.0
+  Clip_min_union_bp: 200.0
+  Fragment_enabled: yes
+  Fragment_window: 1000.0
+  Fragment_max_components: 4.0
+  Fragment_max_span: 1000.0
+  Fragment_size_sim: 0.8
+  Require_all_vcf_for_differential: yes
+  Include_sex_chromosomes: yes
+  Write_tsv: yes
+Megadepth:
+  Flank_bp: 20000
+  Min_softclip: 50
+  Breakpoint_cluster_bp: 100
+  Exclude_flags: 260
+  Coverage_exclude_flags: 2308
+Callers:
+  Min_svlen: 30
+  Sniffles_phase: yes
+  Sniffles_phase_conflict_threshold: 0.1
+  Cutesv_max_cluster_bias_ins: 100
+  Cutesv_diff_ratio_merging_ins: 0.3
+Report:
+  Promoter_bp: 2000
+Softclip:
+  Cluster_bp: 10
+  Shared_peak_bp: 25
+  Rescue_max_distance: 1000
+  Min_clip_len: 50
+  Match: 2.0
+  Mismatch: -3.0
+  Gap_open: 5.0
+  Gap_extend: 2.0
+  Min_aligned_bp: 100
+  Partial_identity: 95.0
+  Partial_coverage: 80.0
+  Partial_aligned_bp: 200
+  Rescue_min_unique_sequences: 2
+  Alt_end_bp: 30
+  Near_full_alt_pct: 80.0
+  Min_sequence_entropy: 1.2
+  Max_align_cells: 8.0e+07
+  Read_chunk: 10000
+  Review_center_bp: 100
+  Review_center_min_peak: 4
+  Review_pair_min_peak: 3
+  Review_source_min_peak: 2
+  Review_pair_min_separation: 20
+  Review_pair_max_separation: 5000
+  Shifted_rescue_window: 5000
+  Competitor_score_ratio: 0.97
+  Competitor_min_ambiguous_clips: 2

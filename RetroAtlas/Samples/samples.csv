@@ -1,0 +1,11 @@
+ID,PATH,FILE,REF,SEX,PROCEDENCE 
+305-buffy,/pool_sas/crh/analysis/LSA-2026-0003/wgs/LSA-2026-0003_OM305-buffy/minimap2_clair3/alignments_LSA-2026-0003_OM305-buffy_sorted.bam,bam,/pool_sas/crh/ref/hg38.fa,F,UNKNOW 
+305,/pool_sas/crh/analysis/LSA-2026-0003/wgs/LSA-2026-0003_OM305/minimap2_clair3/alignments_LSA-2026-0003_OM305_sorted.bam,bam,/pool_sas/crh/ref/hg38.fa,F,UNKNOW 
+sample2,/pool_sas/crh/analysis/INV-2025-Gemelos/wgs/INV-2025-Gemelos_24-512/bam2cram/alignments_INV-2025-Gemelos_24-512.cram,cram,/pool_sas/crh/ref/hg38.fa,F,EUROPEAN 
+sample3,/pool_sas/crh/analysis/INV-2025-RETROS/wgs/INV-2025-RETROS_25-268/minimap2_clair3/INV-2025-RETROS_25-268/INV-2025-RETROS_25-268_sorted.bam,bam,/pool_sas/crh/ref/hg38.fa,M,EUROPEAN 
+sample4,/pool_sas/crh/analysis/LSA-2025-0009/dna_met_from_bam/LSA-2025-0009_24-1164/alignments_LSA-2025-0009_24-1164.cram,cram,/pool_sas/crh/ref/hg38.fa,M,EUROPEAN 
+sample5,/pool_sas/crh/analysis/INV-2024-RETROS/dna_met_from_bam/INV-2024-0005_8817/alignments_INV-2024-0005_8817.cram,cram,/pool_sas/crh/ref/hg38.fa,F,EUROPEAN 
+sample6,/pool_sas/crh/analysis/LSA-2024-0039/dna_met_from_bam/LSA-2024-0039_GS1375-I-Sangre/alignments_LSA-2024-0039_GS1375-I-Sangre_sorted.bam,bam,/pool_sas/crh/ref/hg38.fa,F,EUROPEAN 
+sample17,/pool_sas/crh/analysis/LSA-2024-0008/LSA-2024-0008_10658/alignments_LSA-2024-0008_10658.bam,bam,/pool_sas/crh/ref/hg38.fa,F,EUROPEAN 
+sample18,/pool_sas/crh/analysis/LSA-2024-0008/LSA-2024-0008_25588/alignments_LSA-2024-0008_25588.bam,bam,/pool_sas/crh/ref/hg38.fa,F,EUROPEAN
+sample46,/pool_sas/crh/analysis/INV-2025-RETROS/dna_met_from_bam/INV-2025-RETROS_25-025/alignments_INV-2025-RETROS_25-025.cram,cram,/pool_sas/crh/ref/hg38.fa,M,EUROPEAN

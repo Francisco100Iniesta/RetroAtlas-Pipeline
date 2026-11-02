@@ -1,0 +1,28 @@
+# OUTPUT
+Outpath: "Results/FinalTest"
+
+# LAUNCH PARAMETERS
+Single: true
+Retroatlas: true
+Compare: true
+
+# VARIANT CALLING PARAMETERS
+Variantcalling:
+    Rescue_supp: 1
+    Supp: 3
+    Min_svlen: 30
+    Cluster_size: 500
+
+# CALLABILITY
+Callabillity:
+    Mindepth: 10  # Positive depth is always required; 0 disables the absolute minimum.
+    Upperdepthratio: 3
+
+# OTHER PARAMETERS
+# BED coordinates must match the selected assembly; aliases are translated.
+Adaptivesampling: false
+Adaptivesamplingbed: regions.bed
+T2t: false
+Seed: 1231239
+# Keep final HTML/VCF and Atlas RDS/table products after all enabled objectives succeed.
+Cleanall: false
