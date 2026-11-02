@@ -49,14 +49,19 @@ Retrotransposon analysis involves challenges that are not fully resolved by a si
 
 RetroAtlas addresses these issues by integrating detection, reconstruction, annotation, **coverage-aware interpretation**, and targeted searches for otherwise missed insertion evidence.
 
+
 ### How does RetroAtlas work?
 
-The workflow follows four main stages:
+The workflow consists of four main stages:
 
-1. **Detection — multiple structural variant callers.** Sniffles2, cuteSV, and Severus analyze BAM/CRAM alignments using complementary calling strategies to identify candidate genomic insertions.
+1. **Detection — multiple structural variant callers.** [Sniffles2](https://github.com/fritzsedlazeck/Sniffles), [cuteSV](https://github.com/tjiangHIT/cuteSV), and [Severus](https://github.com/KolmogorovLab/Severus) analyze BAM/CRAM alignments using complementary calling strategies to identify candidate genomic insertions.
+
 2. **Sequence reconstruction.** Insertion candidates undergo dedicated sequence reconstruction to improve the sequence available for downstream biological interpretation.
-3. **Characterization.** HiTSV and RepeatMasker contribute to insertion characterization and repeat annotation. Additional analyses assess features such as **poly(A) tails**, **target-site duplications (TSDs)**, and reconstructed insertion architecture.
+
+3. **Characterization.** [HitSV](https://github.com/hitbc/HitSV) and [RepeatMasker](https://www.repeatmasker.org/) contribute to insertion characterization and repeat annotation. Additional analyses assess features such as **poly(A) tails**, **target-site duplications (TSDs)**, and reconstructed insertion architecture.
+
 4. **Callability and reporting.** Sequencing-depth information is used to assess which genomic regions can be evaluated reliably. The workflow integrates insertion evidence and biological annotations into sample-level and comparative reports.
+
 
 <img src="ReadmeImage/workflow.png"
      alt="RetroAtlas workflow: input, detection, characterization, and reports"
