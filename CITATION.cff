@@ -1,0 +1,45 @@
+
+cff-version: 1.2.0
+
+message: >-
+  If you use RetroAtlas in your research,
+  please cite this software and specify
+  the version or Git commit used.
+
+type: software
+
+title: >-
+  RetroAtlas: A pipeline for detection,
+  reconstruction, and characterization
+  of retrotransposition events from
+  long-read sequencing data
+
+authors:
+  - given-names: Francisco
+    family-names: Iniesta Martínez
+    affiliation: Instituto Murciano de Investigación Biosanitaria Pascual Parrilla (IMIB), Murcia, Spain
+
+  - given-names: Belén
+    family-names: de la Morena Barrio
+    affiliation: Instituto Murciano de Investigación Biosanitaria Pascual Parrilla (IMIB), CIBERER, Murcia, Spain
+    orcid: https://orcid.org/0000-0002-6696-7762
+
+  - given-names: María
+    family-names: Llamas López
+    affiliation: Universidad de Murcia, Instituto Murciano de Investigación Biosanitaria Pascual Parrilla (IMIB), Murcia, Spain
+
+  - given-names: Javier
+    family-names: Corral de la Calle
+    affiliation: Universidad de Murcia, Instituto Murciano de Investigación Biosanitaria Pascual Parrilla (IMIB), Murcia, Spain
+    orcid: https://orcid.org/0000-0003-0288-1107
+
+repository-code: https://github.com/Francisco100Iniesta/RetroAtlas-Pipeline
+
+abstract: >-
+  RetroAtlas is a Snakemake-based bioinformatics pipeline
+  for the detection, reconstruction, characterization,
+  and comparative analysis of retrotransposition events
+  from long-read sequencing data. The workflow integrates
+  multiple structural variant callers, sequence reconstruction,
+  repeat annotation, genomic callability assessment,
+  and targeted insertion evidence rescue.
