@@ -58,7 +58,7 @@ The workflow follows four main stages:
 3. **Characterization.** HiTSV and RepeatMasker contribute to insertion characterization and repeat annotation. Additional analyses assess features such as **poly(A) tails**, **target-site duplications (TSDs)**, and reconstructed insertion architecture.
 4. **Callability and reporting.** Sequencing-depth information is used to assess which genomic regions can be evaluated reliably. The workflow integrates insertion evidence and biological annotations into sample-level and comparative reports.
 
-![RetroAtlas workflow: input, detection, characterization, and reports](ReadmeImage/workflow.png)
+<img src="ReadmeImage/workflow.png" alt="RetroAtlas workflow: input, detection, characterization, and reports" style="background: transparent; background-color: transparent;">
 
 *Figure 1. Overview of RetroAtlas, from long-read BAM/CRAM alignments through multicaller insertion detection, sequence reconstruction, biological annotation, and reporting.*
 
