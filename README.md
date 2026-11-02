@@ -146,9 +146,11 @@ In **Compare** and **Atlas**, RetroAtlas preserves information from the initial 
 
 The purpose of rescue is not to label every initially missing insertion as present. It is to determine whether there is additional supporting evidence that can resolve an apparent discrepancy. Such evidence must still be interpreted together with local genomic callability.
 
-<img src="ReadmeImage/compare.png"
-     alt="RetroAtlas modes: input, detection, characterization, and reports"
-     width="850">
+<p align="center">
+  <img src="ReadmeImage/compare.png"
+       alt="RetroAtlas modes: input, detection, characterization, and reports"
+       width="850">
+</p>
 
 
 
