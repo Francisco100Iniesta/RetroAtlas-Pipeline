@@ -111,7 +111,8 @@ RetroAtlas provides three complementary modes for studying retrotransposition at
 
 **Single** characterizes the retrotransposition landscape of an individual sample. It integrates insertion detection, sequence reconstruction, repeat classification, event characterization, genome-wide callability, and detailed reporting.
 
-This mode is appropriate when the objective is to investigate **which insertions are present in one genome**, their sequence characteristics, and their distribution across chromosomes and genomic features.
+This mode is appropriate when the objective is to investigate which insertions are present in one genome, their sequence characteristics, and their distribution across chromosomes and genomic features, as it supports BED analysis when using [adaptive sampling](https://nanoporetech.com/applications/techniques/adaptive-sampling-and-digital-panels).
+
 
 ### Compare: pairwise comparison
 
