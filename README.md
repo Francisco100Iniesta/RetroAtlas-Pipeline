@@ -163,7 +163,7 @@ RetroAtlas produces reports that complement event-level results with biologicall
 
 Coverage profiles describe which regions satisfy the configured depth limits and identify positions that cannot be assessed reliably. These summaries help users evaluate the genomic fraction suitable for insertion analysis.
 
-![RetroAtlas genome-wide callability report](ImageReadme/Figure_5_callability_report.png)
+![RetroAtlas genome-wide callability report](ReadmeImage/callabillity.png)
 
 *Figure 5. Example callability report displaying chromosome-level depth categories and the proportion of evaluated genomic positions within the configured coverage limits.*
 
@@ -171,7 +171,7 @@ Coverage profiles describe which regions satisfy the configured depth limits and
 
 Insertion reports summarize repeat classes and genotypes and describe features of reconstructed insertion events, providing context beyond a list of genomic coordinates.
 
-![RetroAtlas repeat classes and event architecture report](ImageReadme/Figure_6_repeat_biology_report.png)
+![RetroAtlas genome-wide callability report](ReadmeImage/class.png)
 
 *Figure 6. Example biological report summarizing repeat class composition, heterozygous/homozygous insertion genotypes, and event architecture.*
 
@@ -179,7 +179,7 @@ Insertion reports summarize repeat classes and genotypes and describe features o
 
 Genome-wide visualizations show where insertions occur, their density across chromosomes, and their relationship to annotated genomic features such as exons, introns, promoters, and intergenic regions.
 
-![RetroAtlas chromosomal insertion distribution report](ImageReadme/Figure_7_genomic_distribution_report.png)
+![RetroAtlas genome-wide callability report](ReadmeImage/distribution.png)
 
 *Figure 7. Example report showing the positional distribution and chromosomal density of insertions, together with their genomic context.*
 
