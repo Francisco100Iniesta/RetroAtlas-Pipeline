@@ -1,0 +1,61 @@
+name: sv_calling_env
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  # ---------------------------------------------------------------------------
+  # Structural-variant callers
+  # Versions requested/currently available in the user's channels.
+  # ---------------------------------------------------------------------------
+  - sniffles=2.8.1
+  - cutesv=2.1.4
+  - severus=1.7
+
+  # ---------------------------------------------------------------------------
+  # HTS/VCF utilities
+  # htslib supplies bgzip and tabix.
+  # Keep bcftools/samtools/htslib on the same release series.
+  # ---------------------------------------------------------------------------
+  - bcftools=1.24
+  - samtools=1.24
+  - htslib=1.24
+
+  # ---------------------------------------------------------------------------
+  # R
+  # R 4.5 is used because the current Bioconductor 3.22 recipes are built
+  # against R >=4.5,<4.6.
+  # ---------------------------------------------------------------------------
+  - r-base=4.5
+
+  # High-level R packages present in the previous environment.
+  # Their dependencies (dplyr, ggplot2, tidyr, readr, etc.) are resolved
+  # automatically by mamba.
+  - r-tidyverse=2.0.0
+  - r-data.table
+  - r-pbmcapply
+  - r-igraph
+  - r-rmarkdown
+
+  # ---------------------------------------------------------------------------
+  # Bioconductor stack present in the previous environment.
+  # These high-level packages pull in IRanges, S4Vectors, Biostrings, etc.
+  # ---------------------------------------------------------------------------
+  - bioconductor-genomicranges
+  - bioconductor-genomicalignments
+  - bioconductor-genomicfeatures
+  - bioconductor-rsamtools
+  - bioconductor-rtracklayer
+  - bioconductor-summarizedexperiment
+  - bioconductor-biomart
+
+  # ---------------------------------------------------------------------------
+  # Python is deliberately NOT pinned.
+  # The solver should choose the version compatible with all three callers.
+  # ---------------------------------------------------------------------------
+
+  # Optional tools that were also present in the previous environment.
+  # Uncomment them only if you still use them elsewhere.
+  # - survivor
+  # - truvari

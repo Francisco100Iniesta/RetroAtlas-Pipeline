@@ -1,0 +1,116 @@
+# Parámetros avanzados de Single.
+ReferenceValidation:
+  mismatch_policy: error
+Depth:
+  window_bp: 1000
+HitSV:
+  min_svlen: 50
+EventReconstruction:
+  query_threshold: 80
+  model_threshold: 80
+  group_dominance_threshold: 0.8
+  exact_locus_dpos: 0
+  audit_dpos_max: 500
+  heteroallelic_near_dpos_max: 5
+  very_near_dpos_max: 2
+  very_near_size_min: 0.85
+  near_dpos_max: 10
+  near_size_min: 0.9
+  mid_dpos_max: 25
+  mid_size_min: 0.93
+  far_dpos_max: 100
+  far_size_min: 0.95
+  exact_event_flex_size_min: 0.93
+  very_near_event_flex_dpos_max: 5
+  very_near_event_flex_size_min: 0.97
+  near_event_flex_dpos_max: 10
+  near_event_flex_size_min: 0.98
+  class_conflict_audit_dpos_max: 2
+  class_conflict_audit_size_min: 0.98
+  svlen_stable_min: 0.95
+  svlen_moderate_min: 0.85
+  polyat_primary_window: 50
+  polyat_primary_exact_run: 9
+  polyat_primary_tolerant_run: 15
+  polyat_primary_mismatch_tolerance: 2
+  polyat_rescue_window: 100
+  polyat_rescue_exact_run: 10
+  polyat_rescue_tolerant_run: 15
+  polyat_rescue_mismatch_tolerance: 3
+  fragmentation_mode: highconf
+  fragment_population_policy: exclude_shadow_complex
+  fragment_local_gap_bp: 150
+  fragment_audit_window_bp: 1000
+  fragment_auto_max_components: 3
+  fragment_auto_max_span_bp: 500
+  fragment_complex_min_components: 4
+  fragment_complex_span_bp: 1000
+  fragment_source_complex_min_components: 6
+  fragment_source_complex_span_bp: 2000
+  fragment_shadow_max_fraction: 0.5
+  fragment_repeat_near_bp: 0
+  fragment_vcf_window_bp: 1000
+  fragment_vcf_min_svlen: 20
+  fragment_vcf_min_similarity: 0.8
+  fragment_vcf_strong_similarity: 0.9
+  fragment_auto_vcf_min_callers: 2
+  fragment_auto_require_vcf: false
+  fragment_vcf_require_pass: false
+  fragment_anchored_dropout: true
+  fragment_anchored_min_component_lr: 5
+  fragment_anchored_min_anchor_fraction: 0.5
+  fragment_anchored_max_unresolved: 2
+  fragment_anchored_vcf_min_callers: 2
+  fragment_anchored_vcf_similarity: 0.9
+  fragment_anchored_require_same_event: true
+  write_audits: true
+  write_legacy_rds: false
+TEClassifier:
+  explicit_not_applicable: true
+  max_repeat_elements: 10
+  alu_min_partial_bp: 50
+  sva_min_partial_bp: 100
+  sva_composite_min_fragment_bp: 100
+  sva_composite_min_fragments: 2
+  l1_3prime_tolerance_bp: 100
+  l1_strong_3prime_tolerance_bp: 25
+  hml2_min_fragment_bp: 50
+  hml2_ltr_names:
+  - LTR5_Hs
+  - LTR5A
+  - LTR5B
+  hml2_internal_name: HERVK-int
+  interspersed_groups:
+  - Alu
+  - L1
+  - SVA
+  - MIR
+  - tRNA
+  - 5S
+  - LTR
+  - DNA
+  - Other_SINE
+  - Other_LINE
+  - Other_retro
+  mobile_groups:
+  - Alu
+  - L1
+  - SVA
+  - HERVK_HML2
+TSD:
+  flank_bp: 2000
+  min_anchor: 100
+  min_anchor_identity: 90.0
+  max_tsd: 50
+  min_tsd_identity: 0.85
+  min_callable_fraction: 0.8
+  size_tolerance: 5
+  ambiguity_identity_margin: 0.02
+  blast_task: blastn
+  blast_evalue: 10.0
+  blast_word_size: 11
+Finalization:
+  window: 2000
+  min_tsd: 4
+Report:
+  promoter_bp: 2000

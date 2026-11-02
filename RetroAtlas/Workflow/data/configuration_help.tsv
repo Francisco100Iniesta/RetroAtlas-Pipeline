@@ -1,0 +1,190 @@
+Outpath	Root directory for generated results. Relative paths are resolved from the launch directory.
+Single	Generate individual sample analyses and reports for every row in Samples/samples.csv.
+Compare	Analyze the explicit pairs in Samples/comparison.csv, including their individual processing and rescue evidence.
+Retroatlas	Cluster all samples in Samples/samples.csv into one population catalogue and generate an Atlas report.
+Cleanall	After a successful complete run, retain selected individual HTML/VCF, Compare HTML, and Atlas aggregate/internal/exported RDS, HTML and public TSV/BED tables. Remove other intermediate evidence and logs. Shared reference downloads and original inputs are retained. If false or omitted, only generated CRAM-to-BAM files and indexes are removed at completion. Partial or failed runs are not cleaned.
+T2t	Select T2T-CHM13v2.0 (true) or GRCh38/hg38 (false). Selects chromosome validation, gene annotation and tandem-repeat tracks; does not lift coordinates between assemblies.
+Seed	Random seed for reproducible Atlas catalogue vector permutations.
+Adaptivesampling	Restrict analysis and coverage normalization to the target intervals supplied in Adaptivesamplingbed.
+Adaptivesamplingbed	Target BED in the selected assembly, required when Adaptivesampling is true. Chromosome aliases are translated; coordinates are unchanged.
+Rescue_supp	Minimum supporting reads for regional rescue calls in Compare and Atlas.
+Supp	Minimum ALT-read support for primary variant calling and reportable events.
+Min_svlen	Minimum insertion length, in base pairs. In the base configuration it also controls downstream primary filtering; Hitsv can use its separate candidate threshold.
+Cluster_size	Distance in base pairs used when merging caller loci into HitSV windows.
+Mindepth	Absolute minimum coverage for callability. Zero disables the absolute cutoff, but positive coverage is still required.
+Upperdepthratio	Maximum regional depth divided by its normalization baseline; larger ratios are marked non-callable.
+Mismatch_policy	Reference mismatch behavior: error aborts before analysis; warn excludes invalid chromosomes and records warnings. No valid primary chromosome always aborts.
+Window_bp	Width of genomic windows in base pairs.
+Query_threshold	Minimum percent query coverage used in repeat/event reconstruction.
+Model_threshold	Minimum percent repeat-model coverage used in repeat/event reconstruction.
+Group_dominance_threshold	Minimum fractional dominance of a repeat group for reconstruction classification.
+Exact_locus_dpos	Maximum positional difference in base pairs for the exact-locus tier.
+Audit_dpos_max	Maximum positional difference in base pairs considered by the reconstruction audit.
+Heteroallelic_near_dpos_max	Maximum positional separation in base pairs for nearby heteroallelic candidates.
+Exact_event_flex_size_min	Minimum length similarity for flexible matching of events at the exact position.
+Class_conflict_audit_dpos_max	Maximum positional difference in base pairs for auditing conflicting repeat classes.
+Class_conflict_audit_size_min	Minimum length similarity for the class-conflict audit.
+Svlen_stable_min	Minimum size similarity classified as stable insertion length.
+Svlen_moderate_min	Minimum size similarity classified as moderately consistent insertion length.
+Fragmentation_mode	Fragment reconstruction policy; highconf enables the conservative high-confidence fragment workflow.
+Fragment_population_policy	Policy for including reconstructed fragments in downstream population analysis; exclude_shadow_complex excludes shadow and complex fragments.
+Fragment_local_gap_bp	Maximum local gap in base pairs used to connect fragment candidates.
+Fragment_audit_window_bp	Neighborhood in base pairs examined for fragment audits.
+Fragment_auto_max_components	Maximum number of components accepted by automatic fragment reconstruction.
+Fragment_auto_max_span_bp	Maximum genomic span in base pairs accepted for automatic reconstruction.
+Fragment_complex_min_components	Component count at which a fragment group is considered complex.
+Fragment_complex_span_bp	Genomic span in base pairs used to flag complex fragment groups.
+Fragment_source_complex_min_components	Component count used to mark the fragment source as complex.
+Fragment_source_complex_span_bp	Span in base pairs used to mark the fragment source as complex.
+Fragment_shadow_max_fraction	Maximum fraction allowed by the fragment shadow classification policy.
+Fragment_repeat_near_bp	Neighborhood around repeats, in base pairs, used by fragment classification.
+Fragment_vcf_window_bp	Maximum search distance in base pairs for caller evidence supporting a fragment.
+Fragment_vcf_min_svlen	Minimum insertion length in base pairs for fragment-supporting caller evidence.
+Fragment_vcf_min_similarity	Minimum insertion-length similarity for fragment caller evidence.
+Fragment_vcf_strong_similarity	Length-similarity threshold for strong fragment caller evidence.
+Fragment_auto_vcf_min_callers	Minimum number of callers supporting automatic fragment reconstruction.
+Fragment_auto_require_vcf	Require caller evidence before accepting an automatic fragment reconstruction.
+Fragment_vcf_require_pass	Require PASS-filtered caller records for fragment support.
+Fragment_anchored_dropout	Enable anchored fragment reconstruction when some components lack full evidence.
+Fragment_anchored_min_component_lr	Minimum read support required for an anchored fragment component.
+Fragment_anchored_min_anchor_fraction	Minimum fraction of anchored components for anchored reconstruction.
+Fragment_anchored_max_unresolved	Maximum unresolved components allowed in anchored reconstruction.
+Fragment_anchored_vcf_min_callers	Minimum supporting callers for anchored reconstruction.
+Fragment_anchored_vcf_similarity	Minimum insertion-length similarity for anchored caller evidence.
+Fragment_anchored_require_same_event	Require anchored components to agree on event identity.
+Write_audits	Write detailed reconstruction audit tables; Cleanall removes them after final reports succeed.
+Write_legacy_rds	Also write legacy RDS objects for compatibility; Cleanall removes these exports.
+Explicit_not_applicable	Represent biologically inapplicable classifier attributes explicitly.
+Max_repeat_elements	Maximum number of repeat elements retained by the TE classifier.
+Alu_min_partial_bp	Minimum aligned Alu fragment length in base pairs for partial classification.
+Sva_min_partial_bp	Minimum aligned SVA fragment length in base pairs for partial classification.
+Sva_composite_min_fragment_bp	Minimum fragment length in base pairs in a composite SVA call.
+Sva_composite_min_fragments	Minimum number of fragments required to classify a composite SVA.
+L1_3prime_tolerance_bp	Allowed distance in base pairs from the L1 model 3-prime end.
+L1_strong_3prime_tolerance_bp	Stricter distance in base pairs for strong L1 3-prime evidence.
+Hml2_min_fragment_bp	Minimum HERV-K/HML2 fragment length in base pairs.
+Hml2_ltr_names	RepeatMasker LTR model names recognized as HERV-K/HML2 components. Values are case-sensitive.
+Hml2_internal_name	RepeatMasker model name for the internal HERV-K/HML2 component.
+Interspersed_groups	Repeat groups treated as interspersed elements during classification. Values retain their original case.
+Mobile_groups	Repeat groups classified as mobile elements.
+Flank_bp	Flanking sequence/window length in base pairs; Tsd uses it for sequence extraction and Megadepth for regional evidence padding.
+Min_anchor	Minimum sequence-anchor length in base pairs for TSD detection.
+Min_anchor_identity	Minimum anchor sequence identity, as a percentage.
+Max_tsd	Maximum accepted target-site duplication length in base pairs.
+Min_tsd_identity	Minimum target-site duplication sequence identity, as a fraction from 0 to 1.
+Min_callable_fraction	Minimum fraction of a region that must be callable; 1 requires the entire evaluated interval.
+Size_tolerance	Allowed insertion-size discrepancy in base pairs during TSD evaluation.
+Ambiguity_identity_margin	Identity margin used to identify ambiguous TSD alignments.
+Blast_task	BLAST nucleotide alignment task used by TSD detection, such as blastn.
+Blast_evalue	Maximum BLAST expectation value used during TSD alignment.
+Blast_word_size	BLAST seed word size in nucleotides.
+Window	Genomic padding in base pairs used when finalizing sample event regions.
+Min_tsd	Minimum TSD length in base pairs retained in final event classification.
+Promoter_bp	Strand-aware promoter window upstream of the selected transcript, in base pairs.
+Io_cores	Threads used for data input/output, bounded by the allocated comparison or population resources.
+Clip_cores	Workers for softclip evaluation. Zero uses the cores allocated to the comparison/population job.
+Primary_min_support	Standalone engine minimum primary ALT-read support. The pipeline overrides it with Variantcalling.Supp.
+Require_pass_cover	Require passing coverage status for primary loci. The pipeline enforces true.
+Require_pass_region	Require passing regional depth status for primary loci. The pipeline enforces true.
+Require_resolved_class	Require a resolved repeat class for primary-event eligibility.
+Require_resolved_event	Require a resolved event identity for primary-event eligibility.
+Require_resolved_completeness	Require a resolved completeness classification for primary-event eligibility.
+Primary_window	Maximum positional distance in base pairs considered for primary-event matching.
+Primary_min_size_sim	Minimum insertion-length similarity for primary-event matching, as a fraction.
+Primary_seq_mode	Sequence comparison policy: off, conflicts, or all. Conflicts limits comparisons to ambiguous primary matches.
+Primary_seq_identity	Minimum primary ALT-sequence identity, as a percentage.
+Primary_seq_coverage	Minimum aligned coverage of primary ALT sequences, as a percentage.
+Primary_seq_veto	Allow contradictory sequence evidence to reject an otherwise geometrically compatible primary match.
+Primary_seq_max_alignments	Maximum number of primary sequence alignments used to bound computation.
+Primary_seq_max_cells	Maximum dynamic-programming matrix cells for primary sequence alignment.
+Rescue_window	Search radius in base pairs for rescue evidence around a locus.
+Rescue_size_sim	Minimum insertion-length similarity for rescue matching, as a fraction.
+Duplicate_guard_enabled	Enable the guard against matching distinct nearby loci as the same event.
+Duplicate_window	Neighborhood in base pairs examined by the duplicate-locus guard.
+Duplicate_geometry_window	Positional window in base pairs for geometrically similar duplicate candidates.
+Duplicate_geometry_size_sim	Minimum insertion-length similarity for duplicate geometry checks.
+Duplicate_align_enabled	Enable sequence alignment when evaluating duplicate candidates.
+Duplicate_align_min_size_sim	Minimum size similarity before attempting duplicate-candidate sequence alignment.
+Duplicate_seq_identity	Minimum sequence identity percentage used by duplicate checks.
+Duplicate_seq_coverage	Minimum alignment coverage percentage used by duplicate checks.
+Duplicate_max_alignments_per_source	Maximum duplicate-check alignments attempted per source locus.
+Undermerge_seq_identity	Minimum sequence identity percentage when assessing potentially split representations of one event.
+Undermerge_seq_coverage	Minimum alignment coverage percentage when assessing potentially split representations.
+Vcf_window	Search distance in base pairs for regional caller records.
+Vcf_size_sim	Minimum insertion-length similarity for caller-based evidence.
+Vcf_require_pass	Require PASS caller records for VCF rescue evidence.
+Vcf_allow_single_alt_caller	Allow a single alternative caller to support VCF rescue according to the remaining rescue criteria.
+Clip_enabled	Enable rescue/review using softclipped reads.
+Clip_input_mode	How softclip records are loaded: preload or region. Atlas source caching requires preload.
+Clip_window	Broad softclip search window in base pairs.
+Clip_core_window	Core softclip neighborhood in base pairs used around the event.
+Clip_min_identity	Minimum softclip sequence alignment identity, as a percentage.
+Clip_min_coverage	Minimum softclip alignment coverage, as a percentage.
+Clip_min_clips	Minimum number of supporting softclipped reads.
+Clip_min_cluster	Minimum number of softclips in a supporting cluster.
+Clip_min_union_bp	Minimum union of aligned softclip bases required for support.
+Fragment_enabled	Enable multi-component fragment evidence during rescue.
+Fragment_window	Search neighborhood in base pairs for multi-component fragment evidence.
+Fragment_max_components	Maximum components combined for a fragment rescue candidate.
+Fragment_max_span	Maximum genomic span in base pairs of a fragment rescue candidate.
+Fragment_size_sim	Minimum combined fragment-length similarity to the source event.
+Require_all_vcf_for_differential	Require all expected caller evidence before assigning a differential/absent state.
+Include_sex_chromosomes	Include sex chromosomes where sex and ploidy rules make them evaluable.
+Write_tsv	Write tabular engine outputs. Must remain true for pipeline Compare and Atlas; Cleanall may remove them afterward.
+Min_softclip	Minimum softclip length in base pairs extracted by Megadepth.
+Breakpoint_cluster_bp	Distance in base pairs for clustering extracted breakpoints.
+Exclude_flags	SAM flag bitmask excluding reads from softclip extraction (for example 260 excludes unmapped and secondary reads).
+Coverage_exclude_flags	SAM flag bitmask excluding reads from coverage evidence.
+Sniffles_phase	Enable phasing in regional Sniffles calls.
+Sniffles_phase_conflict_threshold	Maximum phase-conflict fraction passed to regional Sniffles.
+Cutesv_max_cluster_bias_ins	Maximum insertion clustering bias in base pairs passed to regional cuteSV.
+Cutesv_diff_ratio_merging_ins	Insertion difference ratio passed to regional cuteSV merging.
+Cluster_bp	Distance in base pairs for clustering softclip positions.
+Shared_peak_bp	Maximum separation in base pairs for treating softclip peaks as shared.
+Rescue_max_distance	Maximum positional distance in base pairs for softclip rescue.
+Min_clip_len	Minimum softclip sequence length in base pairs used for alignment.
+Match	Positive alignment score awarded for a matching base.
+Mismatch	Nonpositive alignment score for a mismatching base.
+Gap_open	Gap-opening penalty used by softclip sequence alignment.
+Gap_extend	Gap-extension penalty used by softclip sequence alignment.
+Min_aligned_bp	Minimum aligned sequence length in base pairs.
+Partial_identity	Minimum alignment identity percentage for partial softclip support.
+Partial_coverage	Minimum alignment coverage percentage for partial support.
+Partial_aligned_bp	Minimum aligned length in base pairs for partial support.
+Rescue_min_unique_sequences	Minimum number of distinct softclip sequences required for rescue.
+Alt_end_bp	Distance in base pairs from an ALT-sequence end used to assess end support.
+Near_full_alt_pct	ALT coverage percentage considered near-full-length support.
+Min_sequence_entropy	Minimum sequence entropy accepted to limit low-complexity softclip evidence.
+Max_align_cells	Maximum dynamic-programming matrix cells allowed per softclip alignment.
+Read_chunk	Number of records read per input chunk.
+Review_center_bp	Neighborhood in base pairs around a candidate center for review evidence.
+Review_center_min_peak	Minimum peak support near the review center.
+Review_pair_min_peak	Minimum support for each peak in a review pair.
+Review_source_min_peak	Minimum source-peak support required for review.
+Review_pair_min_separation	Minimum distance in base pairs between paired review peaks.
+Review_pair_max_separation	Maximum distance in base pairs between paired review peaks.
+Shifted_rescue_window	Search radius in base pairs for shifted-position rescue evidence.
+Competitor_score_ratio	Relative alignment-score threshold at which another locus becomes a plausible competitor.
+Competitor_min_ambiguous_clips	Minimum ambiguous softclips needed to flag competing locus support.
+Catalog_id	Safe catalogue identifier used in Atlas output paths; use letters, digits, dots, underscores or hyphens, up to 80 characters.
+Public_detail	Public catalogue detail: vectors retains synchronized de-identified per-sample vectors; summary retains aggregate information.
+Min_public_stratum_n	Minimum participants per sex/origin group to include its public frequency summary. Does not remove loci, require this many carriers, or suppress per-observation vectors. See Min_samples for the cohort execution minimum.
+Reconcile_window	Maximum distance in base pairs considered when reconciling neighboring population loci.
+Reconcile_min_size_sim	Minimum insertion-length similarity for population reconciliation.
+Reconcile_align	Enable sequence alignment during population-locus reconciliation.
+Reconcile_max_alignments	Maximum sequence alignments attempted during reconciliation.
+Clip_evaluation	Evaluate softclips for unresolved_only states or for all states.
+Progress_batch_loci	Number of loci between population progress/checkpoint updates.
+Evidence_scheduler	Population evidence scheduling policy: dynamic assigns small chunks as workers become free; static uses fixed assignment.
+Worker_chunk_loci	Number of loci allocated in each population evidence worker chunk.
+Clip_error_policy	Behavior on softclip evaluation errors: abort fails the job; report records the error in its evidence output.
+Source_clip_cache_enabled	Cache source softclip evidence for reuse; requires Clip_input_mode: preload.
+Source_clip_cache_save_rds	Persist the source softclip cache as RDS; Cleanall removes it after reports finish.
+Rescue_require_callable	Require callable target coverage for a rescue assignment.
+Max_candidate_edges	Upper bound on population candidate-matching edges to limit memory and computation.
+Min_samples	Minimum cohort size required for Atlas, at least 2; the supplied configuration requires 10.
+Workers	Parallel workers for window-evidence export, capped by --cores.
+Min_size_similarity	Minimum insertion-length similarity for evidence matching within exported windows.
+Max_size_difference_bp	Maximum absolute insertion-length difference in base pairs for window evidence matching.
+Require_pass	Require PASS-filtered caller records in window evidence backups.
+Page_size	Number of rows initially shown per page in the Atlas HTML tables.

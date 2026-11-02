@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bedtools
+  - blast
+  - jq
+  - parasail-python
+  - python=3.11
+  - samtools=1.24
+  - seqkit

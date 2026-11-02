@@ -1,0 +1,9 @@
+name: R_rm_env
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconductor-biostrings
+  - r-base
+  - r-data.table
+  - r-tidyverse
