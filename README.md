@@ -109,9 +109,12 @@ For comparative analyses, callability is evaluated with respect to the samples b
 
 RetroAtlas provides three complementary modes for studying retrotransposition at different analytical scales.
 
-<img src="ReadmeImage/modes.png"
-     alt="RetroAtlas modes: input, detection, characterization, and reports"
-     width="850">
+<p align="center">
+  <img src="ReadmeImage/modes.png"
+       alt="RetroAtlas modes: input, detection, characterization, and reports"
+       width="850">
+</p>
+
 
 
 *Figure 2. RetroAtlas analysis modes: Single for an individual genome, Compare for two samples, and Atlas for a collection of samples.*
