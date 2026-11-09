@@ -83,7 +83,7 @@ Population:
   Include_sex_chromosomes: true
   Write_tsv: true
   Max_candidate_edges: 3000000
-  Min_samples: 10
+  Min_samples: 5
 Megadepth:
   Flank_bp: 20000
   Min_softclip: 50
