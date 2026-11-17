@@ -79,11 +79,30 @@ read_coverage <- function(path, mapping, min_depth=0, upper_ratio=3, sex='U', pa
   autosomal <- grepl('^chr([1-9]|1[0-9]|2[0-2])$',d$FINAL_CHR)
   base_rows <- if(any(autosomal)) autosomal else d$FINAL_CHR != 'chrM'
   base_q <- weighted_depth_quantiles(d$depth[base_rows],(d$end-d$start)[base_rows])
-  d[,`:=`(baseline_depth=base_q[2],depth_q1=base_q[1],depth_q3=base_q[3])]
+  d[,`:=`(baseline_depth=base_q[2],baseline_depth_raw=base_q[2],
+           baseline_method=if(any(autosomal)) 'AUTOSOMAL_MEDIAN' else 'AVAILABLE_NON_MITOCHONDRIAL_MEDIAN',
+           depth_q1=base_q[1],depth_q3=base_q[3])]
   if(sex == 'M') for(ch in c('chrX','chrY')) {
     ix <- which(d$FINAL_CHR == ch)
     q <- weighted_depth_quantiles(d$depth[ix],(d$end-d$start)[ix])
-    d[ix,`:=`(baseline_depth=q[2],depth_q1=q[1],depth_q3=q[3])]
+    raw_median <- q[2]
+    method <- 'CHROMOSOME_MEDIAN'
+    # Whole-chromosome Y coverage can have a zero median because assembly
+    # gaps occupy more than half its length. Estimate a fallback from observed
+    # positive-depth Y bases only; do not remove zero-depth windows from d.
+    # This is an observed-depth fallback, not a reference gap/mappability mask.
+    # Use all positive depths (not just >= min_depth) to avoid threshold bias.
+    if(ch == 'chrY' && is.finite(raw_median) && raw_median == 0) {
+      positive <- ix[d$depth[ix] > 0]
+      if(length(positive)) {
+        q <- weighted_depth_quantiles(d$depth[positive],(d$end-d$start)[positive])
+        method <- 'Y_POSITIVE_DEPTH_MEDIAN_FALLBACK'
+        message('[COVERAGE] chrY male: all-window median=0; positive-depth median=',q[2],
+                '; positive bp=',sum((d$end-d$start)[positive]),'/',sum((d$end-d$start)[ix]))
+      }
+    }
+    d[ix,`:=`(baseline_depth=q[2],baseline_depth_raw=raw_median,baseline_method=method,
+              depth_q1=q[1],depth_q3=q[3])]
   }
   d[,depth_ratio:=ifelse(is.finite(baseline_depth) & baseline_depth>0,depth/baseline_depth,NA_real_)]
   d[,cover_status:=ifelse(depth>0 & depth>=min_depth,'PASS','NO')]
@@ -116,7 +135,7 @@ read_coverage <- function(path, mapping, min_depth=0, upper_ratio=3, sex='U', pa
   d[upper,`:=`(color_r=255,color_g=0,color_b=0)]
   list(regions=d, baseline=base_q[2], min_depth=min_depth, upper_ratio=upper_ratio,sex=sex,
        panel=!is.null(panel),baseline_source=if(any(autosomal)) 'autosomal' else 'available non-mitochondrial target',
-       baselines=unique(d[,.(FINAL_CHR,baseline_depth,depth_q1,depth_q3)]))
+       baselines=unique(d[,.(FINAL_CHR,baseline_depth,depth_q1,depth_q3,baseline_depth_raw,baseline_method)]))
 }
 annotate_coverage <- function(loci, coverage) {
   d <- data.table::as.data.table(loci)
