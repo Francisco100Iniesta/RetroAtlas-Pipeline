@@ -265,7 +265,7 @@ RetroAtlas-Pipeline/
 Create a comma-separated CSV file for the samples you intend to analyze. You can prepare it in a spreadsheet application or a text editor, then save it in the expected `samples/` location. Use the following column headers **exactly as shown**:
 
 ```csv
-ID,PATH,FILE,REF,SEX,POBLATION,SUPERPOBLATION
+ID,PATH,FILE,REF,SEX,POPULATION,SUPERPOPULATION
 HG002,samples/HG002.bam,bam,/USC/Ref/hg38.fa,M,Spain,EUROPE
 HG005,samples/HG005.cram,cram,/USC/Ref/hg38.fa,U,U,UNKNOW
 ```
@@ -279,8 +279,8 @@ HG005,samples/HG005.cram,cram,/USC/Ref/hg38.fa,U,U,UNKNOW
 | `FILE` | Input file format, for example `bam` or `cram`. |
 | `REF` | Path to the reference FASTA file. |
 | `SEX` | `M` = male, `F` = female, `U` = unknown. |
-| `POBLATION` | Sample origin  (e.g., country). Keep this header spelling as required by the input format. |
-| `SUPERPOBLATION` | Sample origin (e.g., region). Keep this header spelling as required by the input format. |
+| `POPULATION` | Sample origin  (e.g., country). Keep this header spelling as required by the input format. |
+| `SUPERPOPULATION` | Sample origin (e.g., region). Keep this header spelling as required by the input format. |
 
 Make sure the alignment files and their indexes are accessible, and use a reference assembly consistent with the alignments. For CRAM inputs, ensure the required reference FASTA is available.
 
