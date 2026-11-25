@@ -266,8 +266,8 @@ Create a comma-separated CSV file for the samples you intend to analyze. You can
 
 ```csv
 ID,PATH,FILE,REF,SEX,POBLATION,SUPERPOBLATION
-HG002,samples/HG002.bam,bam,/USC/Ref/hg38.fa,Spain,EUROPE
-HG005,samples/HG005.cram,cram,/USC/Ref/hg38.fa,U,UNKNOW
+HG002,samples/HG002.bam,bam,/USC/Ref/hg38.fa,M,Spain,EUROPE
+HG005,samples/HG005.cram,cram,/USC/Ref/hg38.fa,U,U,UNKNOW
 ```
 
 ### Field reference
